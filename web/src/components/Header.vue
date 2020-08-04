@@ -1,15 +1,53 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-02 11:00:47
- * @LastEditTime: 2020-07-31 09:22:46
+ * @LastEditTime: 2020-08-04 13:41:42
  * @LastEditors: Please set LastEditors
  * @Description: 头部
  * @FilePath: \web\src\components\Header.vue
 --> 
 <template>
-  <div id="header" class="w-100">
+  <div class="w-100 header">
     <!-- 头部上部分 -->
-    <div class="d-flex jc-between px-5 py-3 border-bottom">
+    <div class="w d-flex jc-between py-3">
+      <div class>
+        <router-link to="/">
+          <img src="../assets/img/logo.png" alt height="50" />
+        </router-link>
+      </div>
+      <div class style="width: 550px; flex-shrink: 1;">
+        <el-input placeholder="请输入内容" v-model="input" class="input-with-select" size="middle">
+          <el-select v-model="select" slot="prepend" placeholder="请选择">
+            <el-option label="设备" value="1"></el-option>
+            <el-option label="产品" value="2"></el-option>
+            <el-option label="企业" value="3"></el-option>
+          </el-select>
+          <el-button slot="append" icon="el-icon-search"></el-button>
+        </el-input>
+        <div class="mt-2 searchMessage text-grey">
+          <span>加工中心</span>
+          <i>|</i>
+          <span>焊接机</span>
+          <i>|</i>
+          <span>钣金加工</span>
+          <i>|</i>
+          <span>机械加工</span>
+          <i>|</i>
+          <span>ERP系统</span>
+        </div>
+      </div>
+    </div>
+    <div class="w nav">
+      <p>
+        <span>工厂对接</span>
+        <span>生产对接</span>
+        <span>产品对接</span>
+        <span>辅料对接</span>
+        <span>应用中心</span>
+        <span>设备管理</span>
+      </p>
+    </div>
+    <!-- <div class="d-flex jc-between px-5 py-3 border-bottom">
       <div v-if="isLogin()">
         <span>欢迎来到常州工业物联大数据平台</span> |
         <span>吴奇</span> |
@@ -34,9 +72,9 @@
           <i class="el-icon-arrow-down"></i>
         </span>
       </div>
-    </div>
+    </div>-->
     <!-- 头部下部分 -->
-    <div class="px-5 d-flex ai-center border-bottom">
+    <!-- <div class="px-5 d-flex ai-center border-bottom">
       <div class="py-2">
         <a href>
           <img src="../assets/img/logo.png" alt height="50px" />
@@ -53,8 +91,8 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item v-for="(j, i) in item.children" :key="i" :command="j.path">{{j.title}}</el-dropdown-item>
           </el-dropdown-menu>
-        </el-dropdown>
-        <!-- <span>设备联网</span>
+    </el-dropdown>-->
+    <!-- <span>设备联网</span>
         <span>工业APP</span>
         <span>企业上云</span>
         <span>开发者社区</span>
@@ -64,11 +102,11 @@
         <span>IDC</span>
         <span>专利搜索</span>
         <span>工业品商城</span>
-        <span>产教融合</span>-->
-        <span class="el-icon-search"></span>
+    <span>产教融合</span>-->
+    <!-- <span class="el-icon-search"></span>
       </div>
       <div></div>
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -77,6 +115,8 @@ export default {
   name: "Header",
   data() {
     return {
+      select: "",
+      input: "",
       userName: "",
       menu: [
         {
@@ -134,14 +174,32 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-#header {
-  z-index: 10000;
+.header {
+  z-index: 2000;
   background-color: #f3f3f3;
-}
-.nav {
-  span {
-    padding: 10px;
+  .searchMessage {
+    i {
+      margin: 0 8px;
+    }
+  }
+  .nav {
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #333;
+    span {
+      padding: 10px;
+      margin-right: 20px;
+    }
   }
 }
-</style>>
+</style>
+<style lang="scss">
+.el-select .el-input {
+  width: 100px;
+}
+.input-with-select .el-input-group__prepend {
+  background-color: #fff;
+}
+</style>
 

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-02 09:16:50
- * @LastEditTime: 2020-07-31 09:39:12
+ * @LastEditTime: 2020-08-03 16:20:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\router\index.js
@@ -27,6 +27,10 @@ const routes = [{
       path: '/compaines',
       name: 'Compaines',
       component: () => import('../views/companies/Compaines.vue')
+    }, {
+      path: '/companyDetail',
+      name: 'companyDetail',
+      component: () => import('../views/companies/CompanyDetail.vue')
     }]
   }, {
     path: '/login',

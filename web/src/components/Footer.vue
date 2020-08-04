@@ -1,14 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-02 14:09:04
- * @LastEditTime: 2020-07-13 10:04:30
+ * @LastEditTime: 2020-08-03 14:00:03
  * @LastEditors: Please set LastEditors
  * @Description: 尾部
  * @FilePath: \web\src\components\footer.vue
 --> 
 <!--  -->
 <template>
-  <div id="footer" class="bg-dark">
+  <div class="bg-dark">
     <div class="w py-5">
       <div class="d-flex jc-between text-grey" style="line-height: 30px">
         <div class="d-flex">
