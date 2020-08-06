@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-02 11:00:47
- * @LastEditTime: 2020-08-04 13:41:42
+ * @LastEditTime: 2020-08-05 09:23:37
  * @LastEditors: Please set LastEditors
  * @Description: 头部
  * @FilePath: \web\src\components\Header.vue
@@ -176,7 +176,7 @@ export default {
 <style lang="scss" scoped>
 .header {
   z-index: 2000;
-  background-color: #f3f3f3;
+  background-color: #fff;
   .searchMessage {
     i {
       margin: 0 8px;

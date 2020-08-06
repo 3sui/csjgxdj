@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-03 16:14:42
- * @LastEditTime: 2020-08-04 17:39:54
+ * @LastEditTime: 2020-08-06 15:11:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \常州平台\web\src\views\companies\CompanyDetail.vue
@@ -181,7 +181,13 @@
           <div></div>
           <div></div>
         </div>
-        <div class="right"></div>
+        <div class="right p-3">
+          <p class="fs-xxl-1 my-4">在线咨询</p>
+          <p>如想要了解更多产品详情,点击在线咨询了解更多 产品信息</p>
+          <div class="mt-5">
+            <span>在线咨询</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -194,6 +200,24 @@ export default {
     return {
       nav: ["供应商档案", "产品展示", "企业图片", "评价"],
       isActive: 0,
+      filters: [
+        {
+          title: "接管口径",
+          choose: [
+            { name: "1/4", value: 0 },
+            { name: "3/8", value: 1 },
+            { name: "1/2", value: 2 },
+          ],
+        },
+        {
+          title: "接管口径",
+          choose: [
+            { name: "1/4", value: 0 },
+            { name: "3/8", value: 1 },
+            { name: "1/2", value: 2 },
+          ],
+        },
+      ],
     };
   },
 
@@ -362,9 +386,21 @@ export default {
   }
   .right {
     margin-left: 10px;
-    width: 20%;
-    height: 300px;
-    background-color: red;
+    width: 30%;
+    height: 200px;
+    background-color: #fff;
+    div {
+      text-align: center;
+      span {
+        // display: inline-block;
+        padding: 8px 35px;
+        margin: 0 auto;
+        background-color: #1e3390;
+        color: #fff;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+    }
   }
 }
 </style>

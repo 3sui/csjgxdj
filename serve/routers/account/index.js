@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-13 16:13:40
- * @LastEditTime: 2020-07-23 17:29:35
+ * @LastEditTime: 2020-08-06 14:44:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \serve\routers\account\index.js
@@ -87,7 +87,7 @@ module.exports = app => {
             console.log(a);
             if (a.length == 0) {
                 let client = new Core({
-                    accessKeyId: 'LTAI4FySWyDgcaSZbJXDLQ6m',
+                    accessKeyId: 'wLTAI4FySWyDgcaSZbJXDLQ6mQ',
                     accessKeySecret: 'dUfH5jsmw0BMl0mkIyjeJ5NHc2Xrms',
                     endpoint: 'https://dysmsapi.aliyuncs.com',
                     apiVersion: '2017-05-25'

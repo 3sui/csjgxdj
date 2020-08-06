@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-06 16:21:51
- * @LastEditTime: 2020-07-23 17:16:45
+ * @LastEditTime: 2020-08-05 15:48:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\components\login\Login.vue
@@ -65,7 +65,6 @@
         </div>
       </div>
     </div>
-    <el-button @click="$router.push('/')">点击</el-button>
     <el-dialog
       title="请进行安全验证"
       :visible.sync="dialogFormVisible"
@@ -101,7 +100,7 @@ export default {
       checked: true,
       form: {
         account: "",
-        password: ""
+        password: "",
       },
       rules: {
         account: [{ required: true, message: "请输入账户", trigger: "blur" }],
@@ -109,14 +108,14 @@ export default {
           {
             required: true,
             message: "请输入密码",
-            trigger: "blur"
-          }
-        ]
+            trigger: "blur",
+          },
+        ],
       },
       verCode: {
-        code: ""
+        code: "",
       },
-      dialogFormVisible: false
+      dialogFormVisible: false,
     };
   },
 
@@ -129,8 +128,8 @@ export default {
     fetchCaptcha() {
       this.axios({
         method: "get",
-        url: "/account/fetchCaptcha"
-      }).then(res => {
+        url: "/account/fetchCaptcha",
+      }).then((res) => {
         if (res.data.success) {
           this.img = res.data.data;
           // window.console.log(res.data.captchaText);
@@ -139,7 +138,7 @@ export default {
     },
     //提交账号密码进行登录
     submit(formName) {
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
           this.dialogFormVisible = true;
           this.fetchCaptcha();
@@ -151,15 +150,15 @@ export default {
     },
     //验证验证码
     verification(formName) {
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
           this.axios({
             method: "post",
             url: "/account/varCode",
             data: {
-              code: this.verCode.code
-            }
-          }).then(res => {
+              code: this.verCode.code,
+            },
+          }).then((res) => {
             if (res.data.success) {
               this.dialogFormVisible = false;
               // this.$message.success(res.data.message);
@@ -182,8 +181,8 @@ export default {
       this.axios({
         method: "post",
         url: "/account/login",
-        data: this.form
-      }).then(res => {
+        data: this.form,
+      }).then((res) => {
         if (res.data.success) {
           this.$message.success(res.data.message);
           localStorage.token = res.data.token;
@@ -194,8 +193,8 @@ export default {
           this.$message.success(res.data.message);
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang='scss' scoped>
