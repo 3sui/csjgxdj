@@ -10,11 +10,13 @@
 <template>
   <div id="compaines" class="w d-flex jc-between">
     <div class="left">
+      <!-- 搜索框 -->
       <div class="search mt-3 shadow">
         <el-input placeholder="请输入内容" v-model="searchQuery" class="input-with-select">
           <el-button slot="append" icon="el-icon-search"></el-button>
         </el-input>
       </div>
+      <!-- 筛选 -->
       <div class="filter my-3 px-3 py-4 shadow bg-white">
         <div class="d-flex jc-start mb-2">
           <div class="fs-lg type">产品工艺:</div>
@@ -50,36 +52,77 @@
           </div>
         </div>
       </div>
+      <!-- 列表 -->
       <div class="list">
-        <div
-          v-for="(item, index) in tableData"
-          :key="index"
-          class="d-flex jc-between shadow list_item mb-3"
-        >
-          <div class="d-flex jc-start">
-            <div>
-              <img :src="item.url" />
-            </div>
-            <div class="ml-3">
-              <h3 class="mb-2">{{item.name}}</h3>
-              <p class="claim">
-                <span>{{item.type1}}</span>
-                <span>{{item.type2}}</span>
-                <span>{{item.type3}}</span>
-              </p>
-              <p class="mt-4 pt-2 fs-lg text-grey">技能要求:</p>
+        <div v-for="(item, index) in tableData" :key="index" class="d-flex shadow list_item mb-3">
+          <div class="d-flex flex-row title-icon">
+            <div class>
+              <img :src="item.url" class="listimg" />
             </div>
           </div>
-          <div class="d-flex flex-column jc-between text-right">
-            <p class="fs-xxl text-red">¥ {{item.price}}</p>
-            <p class="fs-lg text-grey">
+
+          <div class="d-flex flex-column detail">
+            <div class="p-2">
+              <div class="d-flex flex-row">
+                <div class="p-2">
+                  <h3 class="enterprise">{{item.enterpriseName}}</h3>
+                </div>
+                <div class="p-2">
+                  <button type="button" class="btn consult">询价</button>
+                </div>
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="d-flex flex-row">
+                <div class="d-flex item-key key-first">工艺</div>
+                <div class="d-flex item-value value-first">{{item.craft}}</div>
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="d-flex flex-row">
+                <div class="d-flex item-key">区域</div>
+                <div class="d-flex item-value">{{item.region}}</div>
+                <div class="d-flex item-key">企业类型</div>
+                <div class="d-flex item-value">{{item.enterpriseType}}</div>
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="d-flex flex-row">
+                <div class="d-flex item-key">工厂面积</div>
+                <div class="d-flex item-value">{{item.area}}</div>
+                <div class="d-flex item-key">员工数量</div>
+                <div class="d-flex item-value">{{item.employeeSum}}</div>
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="d-flex flex-row">
+                <div class="d-flex item-key">年产值</div>
+                <div class="d-flex item-value">{{item.annualIncome}}</div>
+                <div class="d-flex item-key">资质认证</div>
+                <div class="d-flex item-value">{{item.certification}}</div>
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="d-flex flex-row">
+                <div class="d-flex item-key">生产设备</div>
+                <div class="d-flex item-value">{{item.productionEquipment}}</div>
+                <div class="d-flex item-key">检测设备</div>
+                <div class="d-flex item-value">{{item.testingEquipment}}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="d-flex flex-column jc-between "> -->
+
+          <!-- <button type="button" class="btn btn-primary">Primary</button> -->
+          <!-- <p class="fs-lg text-grey">
               已竞标:
               <span class="fs-xxl text-black">{{item.people}}</span>
               人
               <span class="mx-3">|</span> 发布于
               <span>{{item.time}}</span>
-            </p>
-          </div>
+          </p>-->
+          <!-- </div> -->
           <img
             v-if="item.isLegalize"
             class="qualifications"
@@ -95,7 +138,9 @@
           />
         </div>
       </div>
+      <el-pagination background layout="prev, pager, next" :total="1000" class="page"></el-pagination>
     </div>
+
     <div class="right">
       <div class="mt-3">
         <el-button class="w-100">免费发布需求</el-button>
@@ -191,78 +236,77 @@ export default {
 
       tableData: [
         {
-          name: "贷后管理系统",
-          url:
-            "https://zb.oschina.net/file/get?path=static/project-reward/cover/H5yingyong_3.png",
-          type1: "项目",
-          type2: "H5应用",
-          type3: "15天",
-          price: "5000-10000",
-          people: 1,
-          time: "2020-07-31",
+          enterpriseName: "航天云网数据研究院（江苏）有限公司",
+          url: "http://119.3.108.13/50057bee-003d-4f50-bb06-5be1ba3273cb.png",
+          craft: "工艺",
+          region: "江苏省常州市",
+          enterpriseType: "国企",
+          area: "0-1,000 ㎡",
+          employeeSum: "1-50",
+          annualIncome: "￥0-5,000,000",
+          certification: "ISO 9001",
+          productionEquipment: "20种",
+          testingEquipment: "10种",
           isLegalize: true,
         },
         {
-          name: "贷后管理系统",
-          url:
-            "https://zb.oschina.net/file/get?path=static/project-reward/cover/H5yingyong_3.png",
-          type1: "项目",
-          type2: "H5应用",
-          type3: "15天",
-          price: "5000-10000",
-          people: 1,
-          time: "2020-07-31",
-          isLegalize: false,
-        },
-        {
-          name: "贷后管理系统",
-          url:
-            "https://zb.oschina.net/file/get?path=static/project-reward/cover/H5yingyong_3.png",
-          type1: "项目",
-          type2: "H5应用",
-          type3: "15天",
-          price: "5000-10000",
-          people: 1,
-          time: "2020-07-31",
-          isLegalize: false,
-        },
-        {
-          name: "贷后管理系统",
-          url:
-            "https://zb.oschina.net/file/get?path=static/project-reward/cover/H5yingyong_3.png",
-          type1: "项目",
-          type2: "H5应用",
-          type3: "15天",
-          price: "5000-10000",
-          people: 1,
-          time: "2020-07-31",
-          isLegalize: false,
-        },
-        {
-          name: "贷后管理系统",
-          url:
-            "https://zb.oschina.net/file/get?path=static/project-reward/cover/H5yingyong_3.png",
-          type1: "项目",
-          type2: "H5应用",
-          type3: "15天",
-          price: "5000-10000",
-          people: 1,
-          time: "2020-07-31",
+          enterpriseName: "航天云网数据研究院（江苏）有限公司",
+          url: "http://119.3.108.13/50057bee-003d-4f50-bb06-5be1ba3273cb.png",
+          craft: "工艺",
+          region: "江苏省常州市",
+          enterpriseType: "国企",
+          area: "0-1,000 ㎡",
+          employeeSum: "1-50",
+          annualIncome: "￥0-5,000,000",
+          certification: "ISO 9001",
+          productionEquipment: "20种",
+          testingEquipment: "10种",
           isLegalize: true,
         },
         {
-          name: "贷后管理系统",
-          url:
-            "https://zb.oschina.net/file/get?path=static/project-reward/cover/H5yingyong_3.png",
-          type1: "项目",
-          type2: "H5应用",
-          type3: "15天",
-          price: "5000-10000",
-          people: 1,
-          time: "2020-07-31",
+          enterpriseName: "航天云网数据研究院（江苏）有限公司",
+          url: "http://119.3.108.13/50057bee-003d-4f50-bb06-5be1ba3273cb.png",
+          craft: "工艺",
+          region: "江苏省常州市",
+          enterpriseType: "国企",
+          area: "0-1,000 ㎡",
+          employeeSum: "1-50",
+          annualIncome: "￥0-5,000,000",
+          certification: "ISO 9001",
+          productionEquipment: "20种",
+          testingEquipment: "10种",
+          isLegalize: true,
+        },
+        {
+          enterpriseName: "航天云网数据研究院（江苏）有限公司",
+          url: "http://119.3.108.13/50057bee-003d-4f50-bb06-5be1ba3273cb.png",
+          craft: "工艺",
+          region: "江苏省常州市",
+          enterpriseType: "国企",
+          area: "0-1,000 ㎡",
+          employeeSum: "1-50",
+          annualIncome: "￥0-5,000,000",
+          certification: "ISO 9001",
+          productionEquipment: "20种",
+          testingEquipment: "10种",
+          isLegalize: true,
+        },
+        {
+          enterpriseName: "航天云网数据研究院（江苏）有限公司",
+          url: "http://119.3.108.13/50057bee-003d-4f50-bb06-5be1ba3273cb.png",
+          craft: "工艺",
+          region: "江苏省常州市",
+          enterpriseType: "国企",
+          area: "0-1,000 ㎡",
+          employeeSum: "1-50",
+          annualIncome: "￥0-5,000,000",
+          certification: "ISO 9001",
+          productionEquipment: "20种",
+          testingEquipment: "10种",
           isLegalize: true,
         },
       ],
+
     };
   },
 
@@ -354,7 +398,7 @@ export default {
   .list_item {
     position: relative;
     padding: 15px;
-    height: 140px;
+    height: 240px;
     background-color: #fff;
     .claim {
       span {
@@ -368,12 +412,88 @@ export default {
     }
     .qualifications {
       position: absolute;
-      right: 120px;
-      top: 20px;
+      right: 30px;
+      top: 30px;
     }
     .vip {
       position: absolute;
     }
   }
 }
+
+.list_item:hover {
+  border: 1px solid rgba(0, 135, 207, 0.5);
+}
+
+.listimg {
+  width: 210px;
+  height: 210px;
+}
+
+.consult {
+  background-color: #e7f1f8;
+  border: 1px solid #0e6eb8;
+  color: #0e6eb8;
+  font-size: 14px;
+  line-height: 24px;
+  height: 30px;
+ 
+  width: 60px;
+}
+.consult:hover {
+  background-color: #0e6eb8;
+  color: white;
+}
+
+.list_item .item-key {
+  color: #666666;
+  background-color: #f9f9f9;
+  border: 1px solid #f0f0f0;
+  font-size: 12px;
+  width: 40%;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 5px;
+}
+.list_item {
+  height: 240px;
+}
+
+.list_item .item-value {
+  color: #666666;
+  // background-color: #f9f9f9;
+  border: 1px solid #f0f0f0;
+  // border-left: none;
+  font-size: 12px;
+  width: 60%;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 5px;
+}
+
+.list_item .key-first{
+  width: 20%;
+}
+
+.list_item .value-first{
+  width: 80%;
+}
+
+.list_item .p-3 {
+  padding: 0 !important;
+}
+
+.detail {
+  width: 80%;
+}
+
+.enterprise {
+  line-height: 30px;
+}
+.page{
+  width: 50%;
+  margin: 20px auto;
+ 
+}
+
 </style>
