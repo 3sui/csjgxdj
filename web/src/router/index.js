@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-02 09:16:50
- * @LastEditTime: 2020-08-05 16:22:43
+ * @LastEditTime: 2020-08-06 15:36:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\router\index.js
@@ -20,26 +20,42 @@ const routes = [{
     name: 'Home',
     component: () => import('../views/Home.vue'),
     children: [{
-      path: '/index',
-      name: 'Index',
-      component: () => import('../views/home/Index.vue')
-    }, {
-      path: '/compaines',
-      name: 'Compaines',
-      component: () => import('../views/companies/Compaines.vue')
-    }, {
-      path: '/companyDetail',
-      name: 'companyDetail',
-      component: () => import('../views/companies/CompanyDetail.vue')
-    }, {
-      path: '/ProductIndex',
-      name: 'ProductIndex',
-      component: () => import('../views/products/ProductIndex.vue')
-    }, {
-      path: '/productDetail',
-      name: 'productDetail',
-      component: () => import('../views/products/ProductDetail.vue')
-    }]
+        path: '/index',
+        name: 'Index',
+        component: () => import('../views/home/Index.vue')
+      }, {
+        path: '/compaines',
+        name: 'Compaines',
+        component: () => import('../views/companies/Compaines.vue')
+      }, {
+        path: '/companyDetail',
+        name: 'companyDetail',
+        component: () => import('../views/companies/CompanyDetail.vue')
+      }, {
+        path: '/ProductIndex',
+        name: 'ProductIndex',
+        component: () => import('../views/products/ProductIndex.vue')
+      }, {
+        path: '/productDetail',
+        name: 'productDetail',
+        component: () => import('../views/products/ProductDetail.vue')
+      },
+      {
+        path: '/produce',
+        name: 'Produce',
+        component: () => import('../views/produce/Produce.vue')
+      },
+      {
+        path: '/producelist',
+        name: 'Producelist',
+        component: () => import('../views/produce/Producelist.vue')
+      },
+      {
+        path: '/productlist',
+        name: 'Productlist',
+        component: () => import('../views/product/Productlist.vue')
+      }
+    ]
   }, {
     path: '/login',
     name: 'Login',
