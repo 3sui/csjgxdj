@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-28 10:09:44
- * @LastEditTime: 2020-07-30 16:37:07
+ * @LastEditTime: 2020-08-03 13:59:42
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \常州平台\web\src\components\home\infomation.vue
@@ -128,7 +128,6 @@ export default {
   methods: {
     scroll1() {
       let con1 = this.$refs.con1;
-      window.console.log(con1.style);
       this.animate1 = true;
 
       con1.style.marginTop = "-42px";

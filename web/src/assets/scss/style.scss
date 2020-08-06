@@ -9,6 +9,10 @@
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 html {
   font-size: 13px;
 }
@@ -32,11 +36,11 @@ p {
 @each $colorKey,
 $color in $colors {
   .text-#{$colorKey} {
-    color: $color;
+    color: $color !important;
   }
 
   .bg-#{$colorKey} {
-    background-color: $color;
+    background-color: $color !important;
   }
 }
 
@@ -50,7 +54,7 @@ $color in $colors {
 @each $sizeKey,
 $size in $font-sizes {
   .fs-#{$sizeKey} {
-    font-size: $size * $base-font-size;
+    font-size: $size * $base-font-size !important;
   }
 }
 
@@ -64,37 +68,37 @@ $size in $font-sizes {
 
 // width, height
 .w-100 {
-  width: 100%;
+  width: 100% !important;
 }
 
 .h-100 {
-  height: 100%;
+  height: 100% !important;
 }
 
 // flex
 .d-flex {
-  display: flex;
+  display: flex !important;
 }
 
 .flex-column {
-  flex-direction: column;
+  flex-direction: column !important;
 }
 
 .flex-wrap {
-  flex-wrap: wrap;
+  flex-wrap: wrap !important;
 }
 
 @each $key,
 $value in $flex-jc {
   .jc-#{$key} {
-    justify-content: $value;
+    justify-content: $value !important;
   }
 }
 
 @each $key,
 $value in $flex-ai {
   .ai-#{$key} {
-    align-items: $value;
+    align-items: $value !important;
   }
 }
 
@@ -146,75 +150,75 @@ $type in $spacing-types {
 }
 
 // button
-.btn {
-  border: none;
-  border-radius: 0.1538rem;
-  font-size: map-get($font-sizes, 'sm') * $base-font-size;
-  padding: 0.2rem 0.6rem;
+// .btn {
+//   border: none;
+//   border-radius: 0.1538rem;
+//   font-size: map-get($font-sizes, 'sm') * $base-font-size;
+//   padding: 0.2rem 0.6rem;
 
-  &.btn-lg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+//   &.btn-lg {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
 
-    i {
-      color: map-get($colors, 'primary');
-      font-weight: bold;
-      font-size: 1.5rem;
-      margin-right: 0.5rem;
-    }
+//     i {
+//       color: map-get($colors, 'primary');
+//       font-weight: bold;
+//       font-size: 1.5rem;
+//       margin-right: 0.5rem;
+//     }
 
-    background: map-get($colors, 'white-1');
-    border: 1px solid map-get($colors, 'white-2');
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-  }
-}
+//     background: map-get($colors, 'white-1');
+//     border: 1px solid map-get($colors, 'white-2');
+//     padding: 0.8rem 1rem;
+//     font-size: 1rem;
+//   }
+// }
 
 // nav
-.nav {
-  display: flex;
+// .nav {
+//   display: flex;
 
-  .nav-item {
-    border-bottom: 3px solid transparent;
-    padding-bottom: 0.2rem;
+//   .nav-item {
+//     border-bottom: 3px solid transparent;
+//     padding-bottom: 0.2rem;
 
-    &.active {
-      color: map-get($colors, 'primary');
-      border-bottom-color: map-get($colors, 'primary');
-    }
-  }
+//     &.active {
+//       color: map-get($colors, 'primary');
+//       border-bottom-color: map-get($colors, 'primary');
+//     }
+//   }
 
-  &.nav-inverse {
-    .nav-item {
-      color: map-get($colors, 'white');
+//   &.nav-inverse {
+//     .nav-item {
+//       color: map-get($colors, 'white');
 
-      &.active {
-        border-bottom-color: map-get($colors, 'white');
-      }
-    }
-  }
+//       &.active {
+//         border-bottom-color: map-get($colors, 'white');
+//       }
+//     }
+//   }
 
-}
+// }
 
 // sprite
-.sprite {
-  // background: url(../images/index.png) no-repeat 0 0;
-  background-size: 28.8462rem;
-  display: inline-block;
+// .sprite {
+//   // background: url(../images/index.png) no-repeat 0 0;
+//   background-size: 28.8462rem;
+//   display: inline-block;
 
-  &.sprite-news {
-    width: 1.7692rem;
-    height: 1.5385rem;
-    background-position: 63.546% 15.517%;
-  }
+//   &.sprite-news {
+//     width: 1.7692rem;
+//     height: 1.5385rem;
+//     background-position: 63.546% 15.517%;
+//   }
 
-  &.sprite-arrow {
-    width: 0.7692rem;
-    height: 0.7692rem;
-    background-position: 38.577% 52.076%;
-  }
-}
+//   &.sprite-arrow {
+//     width: 0.7692rem;
+//     height: 0.7692rem;
+//     background-position: 38.577% 52.076%;
+//   }
+// }
 
 // borders
 @each $dir in (top, right, bottom, left) {
