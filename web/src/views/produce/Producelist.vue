@@ -8,7 +8,7 @@
 --> 
 <!--  -->
 <template>
-  <div id="compaines" class="w d-flex jc-between">
+  <div id="producelist" class="w d-flex jc-between">
     <div class="left">
       <!-- 搜索框 -->
       <div class="search mt-3 shadow">
@@ -416,5 +416,11 @@ export default {
 .page {
   width: 50%;
   margin: 20px auto;
+}
+</style>
+
+<style >
+#producelist .el-select .el-input {
+    width: 200px ;
 }
 </style>
