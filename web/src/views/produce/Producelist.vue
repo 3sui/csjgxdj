@@ -9,7 +9,7 @@
 <!--  -->
 <template>
   <div id="producelist" class="w d-flex jc-between">
-    <div class="left">
+    <div class="con">
       <!-- 搜索框 -->
       <div class="search mt-3 shadow">
         <el-input placeholder="请输入内容" v-model="searchQuery" class="input-with-select">
@@ -268,21 +268,21 @@ export default {
 </script>
 <style scoped lang="scss">
 .clearfloat{clear:both;height:0;font-size: 1px;line-height: 0px;} 
-.left {
-  width: 90%;
+.con {
+  width: 1200px;
   margin: auto;
 }
-.right {
-  width: 25%;
-  //   background-color: #fff;
-  .info {
-    overflow: hidden;
-    height: 250px;
-  }
-  .anim {
-    transition: all 0.75s;
-  }
-}
+// .right {
+//   width: 25%;
+//     background-color: #fff;
+//   .info {
+//     overflow: hidden;
+//     height: 250px;
+//   }
+//   .anim {
+//     transition: all 0.75s;
+//   }
+// }
 .filter {
   border-radius: 0.15rem;
   .type {
