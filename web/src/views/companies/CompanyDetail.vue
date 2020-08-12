@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-03 16:14:42
- * @LastEditTime: 2020-08-06 15:11:26
+ * @LastEditTime: 2020-08-06 15:45:48
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \常州平台\web\src\views\companies\CompanyDetail.vue
@@ -200,24 +200,6 @@ export default {
     return {
       nav: ["供应商档案", "产品展示", "企业图片", "评价"],
       isActive: 0,
-      filters: [
-        {
-          title: "接管口径",
-          choose: [
-            { name: "1/4", value: 0 },
-            { name: "3/8", value: 1 },
-            { name: "1/2", value: 2 },
-          ],
-        },
-        {
-          title: "接管口径",
-          choose: [
-            { name: "1/4", value: 0 },
-            { name: "3/8", value: 1 },
-            { name: "1/2", value: 2 },
-          ],
-        },
-      ],
     };
   },
 

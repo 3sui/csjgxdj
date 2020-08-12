@@ -1,14 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-28 10:09:44
- * @LastEditTime: 2020-08-03 13:59:42
+ * @LastEditTime: 2020-08-11 16:21:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \常州平台\web\src\components\home\infomation.vue
 --> 
 <!--  -->
 <template>
-  <div class="w d-flex jc-between my-5">
+  <div class="w d-flex jc-between my-3">
     <div class="left p-4">
       <div class="d-flex jc-between">
         <h3 class="fs-xxl text-info">采购中心</h3>

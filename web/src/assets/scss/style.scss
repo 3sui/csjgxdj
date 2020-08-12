@@ -25,12 +25,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: #999;
-}
+// a {
+//   color: #999;
+// }
 
 p {
-  line-height: 1.5em;
+  line-height: 1;
 }
 
 @each $colorKey,

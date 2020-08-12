@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-06 16:21:51
- * @LastEditTime: 2020-08-05 15:48:59
+ * @LastEditTime: 2020-08-10 17:33:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\components\login\Login.vue
@@ -9,9 +9,9 @@
 <!--  -->
 <template>
   <div>
-    <div class="bg-white w-100">
+    <div class="bg-white w-100" >
       <div class="w py-3 d-flex ai-center">
-        <img src="@/assets/img/logo.png" alt width="180px" />
+        <img src="@/assets/img/logo.png" alt height="40px" />
         <span class="mx-5 fs-xxl text-grey">|</span>
         <span class="fs-xl text-grey">欢迎登录</span>
       </div>
@@ -60,7 +60,7 @@
             </div>
           </div>
           <div v-else class="d-flex jc-center py-5">
-            <img src="../../assets/img/logo.png" alt />
+            <img src="../../assets/img/logo.png" width="300px" alt />
           </div>
         </div>
       </div>
@@ -200,7 +200,7 @@ export default {
 <style lang='scss' scoped>
 .content {
   width: 100%;
-  height: 700px;
+  height: calc(100vh - 66px);
   background: url("../../assets/img/changzhou.jpg") no-repeat center center;
   background-size: cover;
   .active {

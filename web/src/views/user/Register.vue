@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-09 09:07:18
- * @LastEditTime: 2020-07-23 15:29:06
+ * @LastEditTime: 2020-08-10 15:24:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\views\user\register.vue
@@ -17,59 +17,89 @@
       </div>
     </div>
     <div class="w bg-white p-1">
-      <h2 class="p-4 border-bottom">欢迎注册账号</h2>
-      <el-form :model="form" class="form" :rules="rules" ref="form">
-        <el-form-item prop="phone">
-          <el-input v-model.number.trim="form.phone">
-            <!-- <div style="width: 60px;background-color: red" slot="prepend">手机号</div> -->
-            <div class="text-center" style="width: 80px;" slot="prepend">手机号码</div>
-          </el-input>
-        </el-form-item>
-        <el-form-item prop="verCode">
-          <el-input v-model.trim="form.verCode">
-            <div class="text-center" style="width: 80px;" slot="prepend">短信验证</div>
+      <div v-if="isRegister">
+        <h2 class="p-4 border-bottom">欢迎注册账号</h2>
+        <el-form :model="form" class="form" :rules="rules" ref="form">
+          <el-form-item prop="phone">
+            <el-input v-model.number.trim="form.phone">
+              <!-- <div style="width: 60px;background-color: red" slot="prepend">手机号</div> -->
+              <div class="text-center" style="width: 80px;" slot="prepend">手机号码</div>
+            </el-input>
+          </el-form-item>
+          <el-form-item prop="verCode">
+            <el-input v-model.trim="form.verCode">
+              <div class="text-center" style="width: 80px;" slot="prepend">短信验证</div>
+              <el-button
+                class="cp"
+                @click="fetchVer"
+                slot="append"
+                :disabled="!disabledCodeBtn"
+              >{{codeText}}</el-button>
+            </el-input>
+          </el-form-item>
+          <el-form-item prop="userName">
+            <el-input v-model="form.userName" placeholder="会员姓名长度2-30，可使用中文，大小写字母，数字，下划线">
+              <div class="text-center" style="width: 80px;" slot="prepend">会员姓名</div>
+            </el-input>
+          </el-form-item>
+          <el-form-item prop="password">
+            <el-input v-model.trim="form.password" show-password>
+              <div class="text-center" style="width: 80px;" slot="prepend">设置密码</div>
+            </el-input>
+          </el-form-item>
+          <el-form-item prop="checkout">
+            <el-checkbox v-model="form.checkout">
+              阅读并同意
+              <a
+                class="text-info"
+                target="_blank"
+                href="http://uc.casicloud.com/new/register_xieyi"
+              >《航天云网用户注册协议》</a>
+              <a
+                class="text-info"
+                target="_blank"
+                href="http://uc.casicloud.com/new/login_xieyi"
+              >《航天云网登录服务协议》</a>
+            </el-checkbox>
+          </el-form-item>
+          <el-form-item>
             <el-button
-              class="cp"
-              @click="fetchVer"
-              slot="append"
-              :disabled="!disabledCodeBtn"
-            >{{codeText}}</el-button>
-          </el-input>
-        </el-form-item>
-        <el-form-item prop="userName">
-          <el-input v-model="form.userName" placeholder="会员姓名长度2-30，可使用中文，大小写字母，数字，下划线">
-            <div class="text-center" style="width: 80px;" slot="prepend">会员姓名</div>
-          </el-input>
-        </el-form-item>
-        <el-form-item prop="password">
-          <el-input v-model.trim="form.password" show-password>
-            <div class="text-center" style="width: 80px;" slot="prepend">设置密码</div>
-          </el-input>
-        </el-form-item>
-        <el-form-item prop="checkout">
-          <el-checkbox v-model="form.checkout">
-            阅读并同意
-            <a
-              class="text-info"
-              target="_blank"
-              href="http://uc.casicloud.com/new/register_xieyi"
-            >《航天云网用户注册协议》</a>
-            <a
-              class="text-info"
-              target="_blank"
-              href="http://uc.casicloud.com/new/login_xieyi"
-            >《航天云网登录服务协议》</a>
-          </el-checkbox>
-        </el-form-item>
-        <el-form-item>
-          <el-button
-            class="w-100"
-            type="primary"
-            @click="onSubmit('form')"
-            :disabled="!form.checkout"
-          >立即注册</el-button>
-        </el-form-item>
-      </el-form>
+              class="w-100"
+              type="primary"
+              @click="onSubmit('form')"
+              :disabled="!form.checkout"
+            >立即注册</el-button>
+          </el-form-item>
+        </el-form>
+      </div>
+      <div v-else>
+        <div class="text-center p-5">
+          <svg
+            t="1597043425136"
+            class="icon m-5"
+            viewBox="0 0 1024 1024"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            p-id="2155"
+            width="100"
+            height="100"
+          >
+            <path
+              d="M512 0C230.4 0 0 230.4 0 512s230.4 512 512 512 512-230.4 512-512S793.6 0 512 0z m0 947.2c-240.64 0-435.2-194.56-435.2-435.2S271.36 76.8 512 76.8s435.2 194.56 435.2 435.2-194.56 435.2-435.2 435.2z m266.24-578.56c0 10.24-5.12 20.48-10.24 25.6l-286.72 286.72c-5.12 5.12-15.36 10.24-25.6 10.24s-20.48-5.12-25.6-10.24l-163.84-163.84c-15.36-5.12-20.48-15.36-20.48-25.6 0-20.48 15.36-40.96 40.96-40.96 10.24 5.12 20.48 10.24 25.6 15.36l138.24 138.24 261.12-261.12c5.12-5.12 15.36-10.24 25.6-10.24 20.48-5.12 40.96 15.36 40.96 35.84z"
+              fill="#6BC839"
+              p-id="2156"
+            />
+          </svg>
+          <h2 class="p-5 fs-xxl-3">恭喜您注册成功</h2>
+          <div class="btn">
+            <router-link to="#" tag="span" class="btn1">进入平台</router-link>
+            <router-link to="#" tag="span" class="btn2">成为企业用户</router-link>
+            <!-- 
+            <span>进入平台</span>
+            <span>成为企业用户</span>-->
+          </div>
+        </div>
+      </div>
     </div>
     <p
       class="text-center mt-5 fs-lg text-grey"
@@ -118,6 +148,7 @@ export default {
       }
     }
     return {
+      isRegister: true,
       codeText: "获取验证码",
       disabledCodeBtn: true,
       form: {
@@ -125,23 +156,23 @@ export default {
         verCode: "",
         userName: "",
         password: "",
-        checkout: false
+        checkout: false,
       },
       rules: {
         phone: [
           { validator: validatePhone, trigger: "blur" },
-          { required: true, message: "请输入手机号", trigger: "blur" }
+          { required: true, message: "请输入手机号", trigger: "blur" },
         ],
         verCode: [{ required: true, message: "请输入验证码", trigger: "blur" }],
         userName: [
           { required: true, message: "请输入会员姓名", trigger: "blur" },
-          { validator: isUsername, trigger: "blur" }
+          { validator: isUsername, trigger: "blur" },
         ],
         password: [
           { required: true, message: "请输入密码", trigger: "blur" },
-          { validator: isPassword, trigger: "blur" }
-        ]
-      }
+          { validator: isPassword, trigger: "blur" },
+        ],
+      },
     };
   },
 
@@ -168,9 +199,9 @@ export default {
             method: "post",
             url: "/account/fetchVer",
             data: {
-              phone: this.form.phone
-            }
-          }).then(res => {
+              phone: this.form.phone,
+            },
+          }).then((res) => {
             if (res.data.success) {
               this.$message.success(res.data.message);
             } else {
@@ -197,18 +228,19 @@ export default {
       }, 1000);
     },
     onSubmit(formName) {
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
           this.axios({
             method: "post",
             url: "/account/register",
-            data: this.form
-          }).then(res => {
+            data: this.form,
+          }).then((res) => {
             if (res.data.success) {
               this.$message.success(res.data.message);
               localStorage.token = res.data.token;
-              localStorage.user = res.data.user
-              this.$router.push("/");
+              localStorage.user = res.data.user;
+              // this.$router.push("/");
+              this.isRegister = false;
             } else {
               this.$message.warning(res.data.message);
             }
@@ -218,8 +250,8 @@ export default {
           return false;
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped lang="scss">
@@ -231,5 +263,28 @@ export default {
 }
 a {
   text-decoration: none;
+}
+.btn {
+  span {
+    display: inline-block;
+    width: 200px;
+    // height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    // background-color: red;
+  }
+  .btn1 {
+    border: 1px solid #1875f0;
+    color: #1875f0;
+  }
+  .btn2 {
+    margin-left: 30px;
+    color: #fff;
+    background-color: #1875f0;
+
+    border: 1px solid #1875f0;
+  }
 }
 </style>

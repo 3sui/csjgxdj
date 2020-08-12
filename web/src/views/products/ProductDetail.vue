@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-04 13:51:57
- * @LastEditTime: 2020-08-06 15:14:40
+ * @LastEditTime: 2020-08-06 15:56:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \常州平台\web\src\views\products\ProductDetail.vue
@@ -43,33 +43,12 @@
         <div class="choose">
           <p v-for="(item,index) in filters" :key="index">
             {{item.title}}：
-            <span class="active">1/4"</span>
-            <span>3/8"</span>
-            <span>1/2"</span>
-          </p>
-          <p>
-            接管口径：
-            <span>1/4"</span>
-            <span>3/8"</span>
-            <span>1/2"</span>
-          </p>
-          <p>
-            接管口径：
-            <span>1/4"</span>
-            <span>3/8"</span>
-            <span>1/2"</span>
-          </p>
-          <p>
-            接管口径：
-            <span>1/4"</span>
-            <span>3/8"</span>
-            <span>1/2"</span>
-          </p>
-          <p>
-            接管口径：
-            <span>1/4"</span>
-            <span>3/8"</span>
-            <span>1/2"</span>
+            <span
+              v-for="(item1, index1) in item.choose"
+              :key="index1"
+              :class="{active: item.isActive == item1.value}"
+              @click="item.isActive = index1"
+            >{{item1.name}}</span>
           </p>
         </div>
         <span class="car">加入购物车</span>
@@ -118,6 +97,35 @@ export default {
     return {
       nav: ["产品概述", "技术参数", "尺寸图纸", "安装使用"],
       isActive: 0,
+      filters: [
+        {
+          title: "接管口径",
+          choose: [
+            { name: `1/4"`, value: 0 },
+            { name: `3/8"`, value: 1 },
+            { name: `1/2"`, value: 2 },
+          ],
+          isActive: 0,
+        },
+        {
+          title: "接管口径",
+          choose: [
+            { name: `1/4"`, value: 0 },
+            { name: `3/8"`, value: 1 },
+            { name: `1/2"`, value: 2 },
+          ],
+          isActive: 0,
+        },
+        {
+          title: "接管口径",
+          choose: [
+            { name: `1/4"`, value: 0 },
+            { name: `3/8"`, value: 1 },
+            { name: `1/2"`, value: 2 },
+          ],
+          isActive: 0,
+        },
+      ],
     };
   },
 
