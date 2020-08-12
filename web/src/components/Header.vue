@@ -285,7 +285,8 @@ export default {
   }
 }
 </style>
-<style lang="scss">
+
+<style  lang="scss">
 .el-select .el-input {
   width: 100px;
 }
