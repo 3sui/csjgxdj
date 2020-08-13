@@ -1,30 +1,32 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-11 14:21:46
- * @LastEditTime: 2020-08-11 16:21:10
+ * @LastEditTime: 2020-08-12 15:29:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \常州平台\web\src\components\home\Statistics.vue
 -->
 <!--  -->
 <template>
-  <div class="w bg-white shadow d-flex jc-between ai-center mt-3">
-    <div class="left d-flex jc-around p-5">
-      <div class="text-left" v-for="(item, index) in tableData" :key="index">
-        <p class="fs-xxl-4 text-dark-1">{{item.num}}</p>
-        <div class="my-4 line"></div>
-        <p class="fs-xl">{{item.title}}</p>
+  <div class="bg-white">
+    <div class="w d-flex jc-between ai-center">
+      <div class="left d-flex jc-around p-5">
+        <div class="text-left" v-for="(item, index) in tableData" :key="index">
+          <p class="fs-xxl-4 text-dark-1">{{item.num}}</p>
+          <div class="my-4 line"></div>
+          <p class="fs-xl">{{item.title}}</p>
+        </div>
       </div>
-    </div>
-    <div class="right text-center">
-      <div>
-        <img src="@/assets/img/logo.png" alt width="230px" />
+      <div class="right text-center">
+        <div>
+          <img src="@/assets/img/logo.png" alt width="230px" />
+        </div>
+        <p class="fs-xxl my-3">Hi 欢迎来到长三角工业互联网平台</p>
+        <p>
+          <router-link to="/login" tag="span" class="login">登录</router-link>
+          <router-link to="/register" tag="span" class="register ml-3">注册</router-link>
+        </p>
       </div>
-      <p class="fs-xxl my-3">Hi 欢迎来到长三角工业互联网平台</p>
-      <p>
-        <router-link to="/login" tag="span" class="login">登录</router-link>
-        <router-link to="/register" tag="span" class="register ml-3">注册</router-link>
-      </p>
     </div>
   </div>
 </template>

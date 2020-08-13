@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-02 14:09:04
- * @LastEditTime: 2020-08-03 14:00:03
+ * @LastEditTime: 2020-08-12 15:25:19
  * @LastEditors: Please set LastEditors
  * @Description: 尾部
  * @FilePath: \web\src\components\footer.vue
@@ -10,48 +10,58 @@
 <template>
   <div class="bg-dark">
     <div class="w py-5">
-      <div class="d-flex jc-between text-grey" style="line-height: 30px">
-        <div class="d-flex">
-          <div class="text-center">
-            <img src="../assets/img/pingtaierweima.png" alt height="80px" />
-            <p>平台中心</p>
-          </div>
-          <div class="text-center ml-4">
-            <img src="../assets/img/htyw_ewm.jpg" alt height="80px" />
-            <p>航天云网公众号</p>
-          </div>
+      <div class="d-flex jc-between text-grey border-bottom p-3" style="line-height: 30px">
+        <div class="border-right fs-xxl-2 p-2 mb-3" style="width: 200px">
+          售前咨询热线
+          <br />95187转1
         </div>
-        <div class="text-grey">
-          <dl>
-            <dt class="text-white-1 fs-xl mb-2">关于我们</dt>
-            <dd>常州工业物联大数据平台</dd>
-            <dd>航天云网数据研究院（江苏）有限公司</dd>
-          </dl>
+        <dl>
+          <dt>工业互联网</dt>
+          <dd>IOT物联网</dd>
+          <dd>设备管理</dd>
+        </dl>
+        <dl>
+          <dt>应用市场</dt>
+          <dd>APP中心</dd>
+          <dd>生态中心</dd>
+        </dl>
+        <dl>
+          <dt>供需对接</dt>
+          <dd>工厂对接</dd>
+          <dd>设备对接</dd>
+          <dd>产品对接</dd>
+          <dd>辅料对接</dd>
+        </dl>
+        <dl>
+          <dt>企业服务</dt>
+          <dd>标识解析</dd>
+          <dd>两化融合</dd>
+          <dd>智能车间</dd>
+          <dd>星级上云</dd>
+        </dl>
+        <dl>
+          <dt>解决方案</dt>
+          <dd>系统集成</dd>
+          <dd>智能化改造</dd>
+        </dl>
+      </div>
+      <div class="text-grey d-flex jc-between mt-5">
+        <div class="about">
+          <p>
+            <span>关于我们</span>
+            <span>法律声明</span>
+            <span>隐私政策</span>
+            <span>廉政举报</span>
+            <span>联系我们</span>
+            <span>加入我们</span>
+          </p>
+          <p class="my-3">2009-2019 Htyw.com 版权所有 ICP证：苏D-20200806</p>
+          <p>公安局备案 33010602009975号</p>
         </div>
-        <div class="text-grey">
-          <dl>
-            <dt class="text-white-1 fs-xl mb-2">专栏专区</dt>
-            <dd>商业航天专区</dd>
-            <dd>航天精工专区</dd>
-            <dd>江阴鑫澄转融网</dd>
-            <dd>工业设计云平台</dd>
-            <dd>安徽工业云</dd>
-            <dd>模具产业云专区</dd>
-          </dl>
-        </div>
-        <div class="text-grey">
-          <dl>
-            <dt class="text-white-1 fs-xl mb-2">联系我们</dt>
-            <dd>市场商务：0519-69663136</dd>
-            <dd>客服邮箱：</dd>
-            <dd>service@casicloudata.com</dd>
-            <dd>邮政编号：213000</dd>
-            <dd>联系地址：常州市天宁区竹林北路256</dd>
-            <dd>号工业互联网培训体验中心</dd>
-          </dl>
+        <div>
+          <img src="@/assets/img/htyw_ewm.jpg" alt />
         </div>
       </div>
-      <p class="text-grey-1">copyright©2019 常州工业物联大数据平台</p>
     </div>
   </div>
 </template>
@@ -67,8 +77,19 @@ export default {
 
   computed: {},
 
-  methods: {}
+  methods: {},
 };
 </script>
 <style lang="scss" scope>
+.about {
+  span {
+    margin-right: 30px;
+    font-size: 14px;
+    color: #ccc;
+  }
+}
+dt {
+  color: #ccc;
+  font-size: 16px;
+}
 </style>

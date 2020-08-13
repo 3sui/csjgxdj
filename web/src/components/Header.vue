@@ -1,13 +1,13 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-02 11:00:47
- * @LastEditTime: 2020-08-11 16:23:43
+ * @LastEditTime: 2020-08-12 13:51:06
  * @LastEditors: Please set LastEditors
  * @Description: 头部
  * @FilePath: \web\src\components\Header.vue
 --> 
 <template>
-  <div class="w-100 header">
+  <div class="w-100 header shadow">
     <div class="top bg-light">
       <div class="w text-grey d-flex jc-between">
         <p>

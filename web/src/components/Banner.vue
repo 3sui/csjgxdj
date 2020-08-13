@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-09 17:13:35
- * @LastEditTime: 2020-07-13 10:00:56
+ * @LastEditTime: 2020-08-12 15:27:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\views\home\Banner.vue
@@ -9,7 +9,7 @@
 <!--  -->
 <template>
   <div>
-    <div class="" style="width: 100%;max-width: 2000px;margin: 0 auto">
+    <div class style="width: 100%;margin: 0 auto">
       <el-carousel trigger="click" height="440px">
         <el-carousel-item v-for="item in imgList" :key="item">
           <!-- <h3 class="small">{{ item }}</h3> -->
@@ -32,7 +32,7 @@ export default {
 
   computed: {},
 
-  methods: {}
+  methods: {},
 };
 </script>
 <style scoped>

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-09 17:31:22
- * @LastEditTime: 2020-08-11 16:35:46
+ * @LastEditTime: 2020-08-12 16:42:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\views\home\Index.vue
@@ -12,8 +12,11 @@
     <Banner :imgList="imgList" />
     <Statistics />
     <Information />
-    <SearchInfo />
+    <!-- <SearchInfo /> -->
     <AppCenter />
+    <Introduction />
+    <App />
+    <Recommend />
   </div>
 </template>
 
@@ -22,7 +25,11 @@ import Banner from "../../components/Banner";
 import Statistics from "../../components/home/Statistics";
 import AppCenter from "../../components/home/AppCenter";
 import Information from "../../components/home/Information";
-import SearchInfo from "../../components/home/SearchInfo";
+// import SearchInfo from "../../components/home/SearchInfo";
+import Introduction from "../../components/home/Introduction";
+import App from "../../components/home/App";
+
+import Recommend from "../../components/home/Recommend";
 
 import img1 from "../../assets/img/banner1.png";
 import img2 from "../../assets/img/banner2.jpeg";
@@ -38,9 +45,12 @@ export default {
   components: {
     Banner,
     Information,
-    SearchInfo,
+    Introduction,
+    // SearchInfo,
     Statistics,
     AppCenter,
+    App,
+    Recommend,
   },
 
   computed: {},
