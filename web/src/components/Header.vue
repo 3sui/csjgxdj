@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-02 11:00:47
- * @LastEditTime: 2020-08-12 13:51:06
+ * @LastEditTime: 2020-08-13 16:29:27
  * @LastEditors: Please set LastEditors
  * @Description: 头部
  * @FilePath: \web\src\components\Header.vue
@@ -13,9 +13,9 @@
         <p>
           Hi~ 欢迎来到长三角供需对接平台
           <span class="ml-3">
-            <span>登录</span>
+            <router-link class="cp" to="login" tag="span">登录</router-link>
             <span class="mx-2">|</span>
-            <span>注册</span>
+            <router-link class="cp" to="register" tag="span">注册</router-link>
           </span>
         </p>
 

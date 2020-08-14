@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-02 09:16:50
- * @LastEditTime: 2020-08-12 10:38:29
+ * @LastEditTime: 2020-08-14 10:32:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\router\index.js
@@ -89,6 +89,11 @@ const routes = [{
     path: '/forget',
     name: 'Forget',
     component: () => import('../views/user/Forget.vue')
+  }
+  , {
+    path: '/business',
+    name: 'Business',
+    component: () => import('../views/user/Business.vue')
   }
   // {
   //   path: '/about',

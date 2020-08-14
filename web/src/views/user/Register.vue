@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-09 09:07:18
- * @LastEditTime: 2020-08-10 15:24:04
+ * @LastEditTime: 2020-08-14 17:09:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\views\user\register.vue
@@ -92,8 +92,8 @@
           </svg>
           <h2 class="p-5 fs-xxl-3">恭喜您注册成功</h2>
           <div class="btn">
-            <router-link to="#" tag="span" class="btn1">进入平台</router-link>
-            <router-link to="#" tag="span" class="btn2">成为企业用户</router-link>
+            <router-link to="index" tag="span" class="btn1">进入平台</router-link>
+            <router-link to="Business" tag="span" class="btn2">成为企业用户</router-link>
             <!-- 
             <span>进入平台</span>
             <span>成为企业用户</span>-->
