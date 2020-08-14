@@ -75,6 +75,11 @@ const routes = [{
         path: '/control',
         name: 'Control',
         component: () => import('../views/control/Control.vue')
+      },
+      {
+        path: '/back',
+        name: 'Back',
+        component: () => import('../views/control/Back.vue')
       }
     ]
   }, {
