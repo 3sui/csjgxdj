@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-02 11:00:47
- * @LastEditTime: 2020-08-13 16:29:27
+ * @LastEditTime: 2020-08-18 17:26:59
  * @LastEditors: Please set LastEditors
  * @Description: 头部
  * @FilePath: \web\src\components\Header.vue
@@ -12,10 +12,15 @@
       <div class="w text-grey d-flex jc-between">
         <p>
           Hi~ 欢迎来到长三角供需对接平台
-          <span class="ml-3">
+          <span class="ml-3" v-if="!userName">
             <router-link class="cp" to="login" tag="span">登录</router-link>
             <span class="mx-2">|</span>
             <router-link class="cp" to="register" tag="span">注册</router-link>
+          </span>
+          <span class="ml-3" v-else>
+            <router-link class="cp" to="#" tag="span">{{userName}}</router-link>
+            <span class="mx-2">|</span>
+            <span class="cp" @click="delUser">注销</span>
           </span>
         </p>
 
@@ -125,66 +130,6 @@
         </el-dropdown>
       </p>
     </div>
-    <!-- <div class="d-flex jc-between px-5 py-3 border-bottom">
-      <div v-if="isLogin()">
-        <span>欢迎来到常州工业物联大数据平台</span> |
-        <span>吴奇</span> |
-        <span @click="delUser">注销</span>
-      </div>
-      <div v-else>
-        <span>欢迎来到常州工业物联大数据平台</span> |
-        <span class="cp" @click="$router.push('/login')">登录</span> |
-        <span class="cp" @click="$router.push('/register')">注册</span>
-      </div>
-      <div>
-        <span class="pr-2">
-          友情链接
-          <i class="el-icon-arrow-down"></i>
-        </span>
-        <span class="pr-2">
-          航天云网
-          <i class="el-icon-arrow-down"></i>
-        </span>
-        <span class="pr-2">
-          客服中心
-          <i class="el-icon-arrow-down"></i>
-        </span>
-      </div>
-    </div>-->
-    <!-- 头部下部分 -->
-    <!-- <div class="px-5 d-flex ai-center border-bottom">
-      <div class="py-2">
-        <a href>
-          <img src="../assets/img/logo.png" alt height="50px" />
-        </a>
-      </div>
-      <div class="fs-xl nav d-flex jc-start ai-center">
-        <el-dropdown
-          v-for="(item, index) in menu"
-          :key="index"
-          @command="handleCommand"
-          placement="bottom"
-        >
-          <span class="text-dark fs-xl cp">{{item.title}}</span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item v-for="(j, i) in item.children" :key="i" :command="j.path">{{j.title}}</el-dropdown-item>
-          </el-dropdown-menu>
-    </el-dropdown>-->
-    <!-- <span>设备联网</span>
-        <span>工业APP</span>
-        <span>企业上云</span>
-        <span>开发者社区</span>
-        <span>方案与案例</span>
-        <span>总控中心</span>
-        <span>行业平台</span>
-        <span>IDC</span>
-        <span>专利搜索</span>
-        <span>工业品商城</span>
-    <span>产教融合</span>-->
-    <!-- <span class="el-icon-search"></span>
-      </div>
-      <div></div>
-    </div>-->
   </div>
 </template>
 
@@ -232,15 +177,18 @@ export default {
   computed: {},
 
   methods: {
-    isLogin() {
-      return localStorage.token ? true : false;
-    },
+    // isLogin() {
+    //   return localStorage.token ? true : false;
+    // },
     fetchUserInfo() {
+      window.console.log(localStorage.userName);
       this.userName = localStorage.userName;
     },
     delUser() {
+      window.console.log(1232);
       localStorage.clear();
-      isLogin();
+      this.userName = localStorage.userName;
+      // isLogin();
     },
     handleCommand(command) {
       this.$router.push(command);

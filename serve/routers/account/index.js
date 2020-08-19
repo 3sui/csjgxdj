@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-13 16:13:40
- * @LastEditTime: 2020-08-06 14:44:10
+ * @LastEditTime: 2020-08-18 17:22:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \serve\routers\account\index.js
@@ -16,6 +16,7 @@ module.exports = app => {
     const validator = require('validator');
     const md5 = require('md5')
     const jwt = require('jsonwebtoken')
+    const auth = require('../../middleware/auth')
     //登录获取图形验证
     router.get('/fetchCaptcha', (req, res) => {
         let data = captcha()
@@ -57,9 +58,11 @@ module.exports = app => {
         } = req.body
         let results = {}
         let sql
-        sql = `select * from user_info where user_name = '${account}' and is_deleted = 0`
+        sql = `select * from user_info where phone = '${account}' and is_deleted = 0`
         let a = await connection(sql)
-        // console.log(a[0].info);
+        console.log(a);
+
+        console.log(a[0].user_name);
 
 
         assert(a.length, 422, '用户不存在')
@@ -87,7 +90,7 @@ module.exports = app => {
             console.log(a);
             if (a.length == 0) {
                 let client = new Core({
-                    accessKeyId: 'wLTAI4FySWyDgcaSZbJXDLQ6mQ',
+                    accessKeyId: 'LTAI4FySWyDgcaSZbJXDLQ6m',
                     accessKeySecret: 'dUfH5jsmw0BMl0mkIyjeJ5NHc2Xrms',
                     endpoint: 'https://dysmsapi.aliyuncs.com',
                     apiVersion: '2017-05-25'
@@ -148,9 +151,12 @@ module.exports = app => {
             let sql = `insert into user_info (phone, password, user_name) values ('${query.phone}','${password}','${query.userName}')`
             let a = await connection(sql)
             console.log(a);
+            let userInfo = {
+                id: a.insertId
+            }
             results.success = true
             results.message = '注册成功'
-            results.token = jwt.sign(a.insertId, app.get('secret'))
+            results.token = jwt.sign(userInfo, app.get('secret'))
             results.user = query
         } else {
             results.success = false
@@ -159,17 +165,66 @@ module.exports = app => {
         res.send(results)
     })
 
-
-    router.get('/123', (req, res) => {
-
-
-        let text = md5(md5(md5(2)))
-        let text2 = md5(md5(md5('2')))
-        
-        console.log(text);
-        console.log(text2);
-        res.send(text)
+    //注册企业
+    router.post('/registerBusiness', auth(), async (req, res) => {
+        let query = req.body
+        let userId = req.user.id
+        let results = {}
+        let sql = `insert into business_info set business_name = '${query.businessName}', business_address = '${query.businessAddress}', business_type = '${query.businessType}'`
+        console.log(sql);
+        let a = await connection(sql)
+        let businessId = a.insertId
+        console.log(a);
+        sql = `update user_info set business = ${businessId}, business_role = 2 where id = ${userId}`
+        console.log(sql);
+        a = await connection(sql)
+        results.success = true
+        results.message = '企业注册成功'
+        res.send(results)
     })
+
+
+    //加入企业
+    router.post('/applyBusiness', auth(), async (req, res) => {
+        console.log(req.user);
+        let query = req.body
+        console.log(query);
+        let sql = `select id from business_info where is_deleted = 0 and business_name = '${query.business}'`
+        let a = await connection(sql)
+        let businessId = a[0].id
+        let userId = req.user.id
+        sql = `update user_info set business = ${businessId}, business_role = 1 where id = ${userId}`
+        a = await connection(sql)
+        console.log(a);
+        let results = {
+            success: true,
+            message: '加入企业成功'
+        }
+        res.send(results)
+    })
+
+    //获取所有企业
+    router.get('/fetchBusiness', async (req, res) => {
+        let sql = `select * from business_info where is_deleted = 0`
+        let a = await connection(sql)
+        console.log(a);
+        let results = {}
+        results.success = true
+        let arr = []
+        a.forEach((item, index) => {
+            arr[index] = {
+                value: item.business_name,
+                address: item.business_address,
+                id: item.id
+            }
+        })
+        console.log(arr);
+        results.business = arr
+        res.send(results)
+    })
+
+
+
 
     app.use('/api/account', router)
 }

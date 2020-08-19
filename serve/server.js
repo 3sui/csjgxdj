@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-08 17:13:20
- * @LastEditTime: 2020-07-23 15:01:21
+ * @LastEditTime: 2020-08-17 17:28:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \serve\server.js
@@ -20,7 +20,11 @@ const session = require('express-session')
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    // cookie: {
+    //     sameSite: "lax",
+    //     secure : true
+    // }
 }))
 //开放uploads文件夹
 // app.use('/uploads', express.static(__dirname + '/uploads'))

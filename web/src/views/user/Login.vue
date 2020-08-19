@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-06 16:21:51
- * @LastEditTime: 2020-08-10 17:33:23
+ * @LastEditTime: 2020-08-18 17:22:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\components\login\Login.vue
@@ -186,7 +186,7 @@ export default {
         if (res.data.success) {
           this.$message.success(res.data.message);
           localStorage.token = res.data.token;
-          localStorage.userName = res.data.userInfo.userName;
+          localStorage.userName = res.data.userInfo.user_name;
 
           this.$router.push("/");
         } else {

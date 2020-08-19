@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-12 16:35:30
- * @LastEditTime: 2020-08-13 14:42:44
+ * @LastEditTime: 2020-08-17 13:47:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \常州平台\web\src\components\home\App.vue
@@ -283,6 +283,7 @@ export default {
 }
 .container {
   height: 600px;
+
   .item {
     position: relative;
     width: 35%;
@@ -299,6 +300,7 @@ export default {
       width: 100px;
       height: 5px;
       background-color: #ccc;
+      transition: 0.5s all;
     }
     &.active {
       width: 45%;
@@ -312,11 +314,15 @@ export default {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      transition: 0.5s all;
+
       img {
         border-radius: 50%;
       }
     }
     .full {
+    transition: 0.5s all;
+
       .table {
         border: 1px solid #eee;
         margin: 10px 0;

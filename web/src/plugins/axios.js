@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-02 09:20:17
- * @LastEditTime: 2020-07-22 09:33:04
+ * @LastEditTime: 2020-08-18 09:04:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\plugins\axios.js
@@ -20,7 +20,6 @@ import router from '../router/index'
 let config = {
   // baseURL: 'http://58.216.47.108:8892'
   baseURL: 'http://127.0.0.1:8892/api',
-
   // baseURL: process.env.baseURL || process.env.apiUrl || ""
   // timeout: 60 * 1000, // Timeout
   withCredentials: true, // Check cross-site Access-Control
@@ -32,6 +31,7 @@ _axios.interceptors.request.use(
   function (config) {
     // Do something before request is sent
     if (localStorage.token) {
+      window.console.log(localStorage.token);
       config.headers.Authorization = 'Bearer ' + localStorage.token
     }
 
