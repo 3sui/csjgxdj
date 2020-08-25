@@ -1,24 +1,29 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-02 11:00:47
- * @LastEditTime: 2020-08-18 17:26:59
+ * @LastEditTime: 2020-08-24 17:12:59
  * @LastEditors: Please set LastEditors
  * @Description: 头部
  * @FilePath: \web\src\components\Header.vue
 --> 
 <template>
   <div class="w-100 header shadow">
-    <div class="top bg-light">
+    <div class="top bg-light-2">
       <div class="w text-grey d-flex jc-between">
         <p>
           Hi~ 欢迎来到长三角供需对接平台
           <span class="ml-3" v-if="!userName">
+            <span class="cp" @click="login">登录</span>
+            <span class="mx-2">|</span>
             <router-link class="cp" to="login" tag="span">登录</router-link>
             <span class="mx-2">|</span>
             <router-link class="cp" to="register" tag="span">注册</router-link>
           </span>
           <span class="ml-3" v-else>
-            <router-link class="cp" to="#" tag="span">{{userName}}</router-link>
+            <router-link class="cp" to="#" tag="span">
+              你好
+              <span class="text-red">{{userName}}</span>
+            </router-link>
             <span class="mx-2">|</span>
             <span class="cp" @click="delUser">注销</span>
           </span>
@@ -32,20 +37,31 @@
       </div>
     </div>
     <!-- 头部上部分 -->
-    <div class="w d-flex jc-between py-3 mb-3">
+    <div class="w d-flex jc-between py-3 mb-3 ai-center">
       <div class>
         <router-link to="/">
-          <img src="../assets/img/logo.png" alt height="50" />
+          <img src="../assets/img/logo.png" alt height="60" />
         </router-link>
       </div>
-      <div class style="width: 550px; flex-shrink: 1;">
-        <el-input placeholder="请输入内容" v-model="input" class="input-with-select" size="middle">
-          <el-select v-model="select" slot="prepend" placeholder="请选择">
+      <div class style="width: 450px; flex-shrink: 1;">
+        <el-input
+          placeholder="请输入内容"
+          v-model="input"
+          class="input-with-select"
+          size="small"
+          style="border: 2px solid #1875f0;border-radius: 4px"
+        >
+          <el-select
+            class="bg-light-2 text-grey-1"
+            v-model="select"
+            slot="prepend"
+            placeholder="请选择"
+          >
             <el-option label="设备" value="设备"></el-option>
             <el-option label="产品" value="产品"></el-option>
             <el-option label="企业" value="企业"></el-option>
           </el-select>
-          <el-button slot="append" icon="el-icon-search"></el-button>
+          <el-button slot="append" icon="el-icon-search" class="bg-info text-white fs-sm">搜索</el-button>
         </el-input>
         <div class="mt-2 searchMessage text-grey">
           <router-link to tag="span">加工中心</router-link>
@@ -62,44 +78,72 @@
     </div>
     <div class="w nav">
       <p>
-        <el-dropdown @command="handleCommand">
-          <span class="el-dropdown-link">
-            工厂对接
-            <i class="el-icon-arrow-down el-icon--right"></i>
-          </span>
+        <!-- <el-dropdown @command="handleCommand">
+          <router-link to="Interconnection" class="el-dropdown-link" tag="span">设备物联</router-link>
+        </el-dropdown>-->
+        <el-dropdown @command="handleCommand" placement="bottom">
+          <span class="el-dropdown-link">设备物联</span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="/compaines">工厂对接1</el-dropdown-item>
-            <el-dropdown-item command="/compaines">工厂对接2</el-dropdown-item>
-            <el-dropdown-item command="/compaines">工厂对接3</el-dropdown-item>
+            <el-dropdown-item command="/demand">接入设备</el-dropdown-item>
+            <el-dropdown-item command="/newneeds">设备管理</el-dropdown-item>
+            <el-dropdown-item command="/demand">设备预警</el-dropdown-item>
+            <el-dropdown-item command="/demand">设备租债</el-dropdown-item>
+            <el-dropdown-item command="/demand">查找设备</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <el-dropdown @command="handleCommand">
-          <span class="el-dropdown-link">
-            生产对接
-            <i class="el-icon-arrow-down el-icon--right"></i>
-          </span>
+        <el-dropdown @command="handleCommand" placement="bottom">
+          <span class="el-dropdown-link">应用市场</span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="/compaines">生产对接1</el-dropdown-item>
-            <el-dropdown-item command="/compaines">生产对接2</el-dropdown-item>
-            <el-dropdown-item command="/compaines">生产对接3</el-dropdown-item>
+            <el-dropdown-item command="/compaines">ERP</el-dropdown-item>
+            <el-dropdown-item command="/compaines">MES</el-dropdown-item>
+            <el-dropdown-item command="/compaines">CRM</el-dropdown-item>
+            <el-dropdown-item command="/compaines">SRM</el-dropdown-item>
+            <el-dropdown-item command="/compaines">WMS</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <el-dropdown @command="handleCommand">
-          <span class="el-dropdown-link">
-            产品对接
-            <i class="el-icon-arrow-down el-icon--right"></i>
-          </span>
+        <el-dropdown @command="handleCommand" placement="bottom">
+          <span class="el-dropdown-link">供需对接</span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item command="/compaines">产品对接1</el-dropdown-item>
-            <el-dropdown-item command="/compaines">产品对接2</el-dropdown-item>
-            <el-dropdown-item command="/compaines">产品对接3</el-dropdown-item>
+            <div>
+              <div style="display: inline-block">
+                <h3 class="mx-4 pb-2 border-bottom">需求发布- 外协生产需求</h3>
+                <el-dropdown-item command="/compaines">设备需求</el-dropdown-item>
+                <el-dropdown-item command="/compaines">产品需求</el-dropdown-item>
+                <el-dropdown-item command="/compaines">原材料需求</el-dropdown-item>
+              </div>
+              <div style="display: inline-block">
+                <h3 class="mx-4 pb-2 border-bottom">能力发布- 生产能力发布</h3>
+                <el-dropdown-item command="/compaines">设备能力发布</el-dropdown-item>
+                <el-dropdown-item command="/compaines">产品发布</el-dropdown-item>
+                <el-dropdown-item command="/compaines">原材料发布</el-dropdown-item>
+              </div>
+            </div>
+            <div class="mt-3">
+              <div style="display: inline-block">
+                <h3 class="mx-4 pb-2 border-bottom">需求对接- 对接生产需求</h3>
+                <el-dropdown-item command="/compaines">对接设备需求</el-dropdown-item>
+                <el-dropdown-item command="/compaines">对接原料需求</el-dropdown-item>
+              </div>
+              <div style="display: inline-block">
+                <h3 class="mx-4 pb-2 border-bottom">能力对接- 下生产订单</h3>
+                <el-dropdown-item command="/compaines">采购产品</el-dropdown-item>
+                <el-dropdown-item command="/compaines">采购原料</el-dropdown-item>
+              </div>
+            </div>
           </el-dropdown-menu>
         </el-dropdown>
-        <el-dropdown @command="handleCommand">
-          <span class="el-dropdown-link">
-            辅料对接
-            <i class="el-icon-arrow-down el-icon--right"></i>
-          </span>
+        <el-dropdown @command="handleCommand" placement="bottom">
+          <span class="el-dropdown-link">企业服务</span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="/compaines">量化融合贯标</el-dropdown-item>
+            <el-dropdown-item command="/compaines">省、市智能车间</el-dropdown-item>
+            <el-dropdown-item command="/compaines">星级上云</el-dropdown-item>
+            <el-dropdown-item command="/compaines">智能化改造</el-dropdown-item>
+            <el-dropdown-item command="/compaines">系统集成服务</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <!-- <el-dropdown @command="handleCommand">
+          <span class="el-dropdown-link">辅料对接</span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="/compaines">辅料对接1</el-dropdown-item>
             <el-dropdown-item command="/compaines">辅料对接2</el-dropdown-item>
@@ -107,10 +151,7 @@
           </el-dropdown-menu>
         </el-dropdown>
         <el-dropdown @command="handleCommand">
-          <span class="el-dropdown-link">
-            应用中心
-            <i class="el-icon-arrow-down el-icon--right"></i>
-          </span>
+          <span class="el-dropdown-link">应用中心</span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="/compaines">应用中心1</el-dropdown-item>
             <el-dropdown-item command="/compaines">应用中心2</el-dropdown-item>
@@ -118,22 +159,20 @@
           </el-dropdown-menu>
         </el-dropdown>
         <el-dropdown @command="handleCommand">
-          <span class="el-dropdown-link">
-            设备管理
-            <i class="el-icon-arrow-down el-icon--right"></i>
-          </span>
+          <span class="el-dropdown-link">设备管理</span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="/compaines">设备管理1</el-dropdown-item>
             <el-dropdown-item command="/compaines">设备管理2</el-dropdown-item>
             <el-dropdown-item command="/compaines">设备管理3</el-dropdown-item>
           </el-dropdown-menu>
-        </el-dropdown>
+        </el-dropdown>-->
       </p>
     </div>
   </div>
 </template>
 
 <script>
+import bus from "../bus";
 export default {
   name: "Header",
   data() {
@@ -185,13 +224,23 @@ export default {
       this.userName = localStorage.userName;
     },
     delUser() {
-      window.console.log(1232);
       localStorage.clear();
       this.userName = localStorage.userName;
-      // isLogin();
+      bus.$emit("logout");
     },
     handleCommand(command) {
       this.$router.push(command);
+    },
+    login() {
+      this.axios({
+        method: "get",
+        url: "http://auth.mst.casicloud.com/1/oauth/authorize",
+        params: {
+          client_id: "3e55qge5xjvagi1n",
+          redirect_uri: "http://58.216.47.108:8893",
+          response_type: "code",
+        },
+      });
     },
   },
   mounted() {
@@ -235,11 +284,24 @@ export default {
 </style>
 
 <style  lang="scss">
-.el-select .el-input {
-  width: 100px;
-}
-.input-with-select .el-input-group__prepend {
-  background-color: #fff;
+.header {
+  .el-select .el-input {
+    width: 100px;
+  }
+  .el-input__inner:focus {
+    border: 1px;
+  }
+  .input-with-select .el-input-group__prepend {
+    background-color: #fff;
+  }
+  .el-button {
+    line-height: 0.5;
+    border-radius: 0;
+  }
+  .el-input-group__append,
+  .el-input-group__prepend {
+    border: 0;
+  }
 }
 </style>
 

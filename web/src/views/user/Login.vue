@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-06 16:21:51
- * @LastEditTime: 2020-08-18 17:22:30
+ * @LastEditTime: 2020-08-21 14:00:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\components\login\Login.vue
@@ -9,16 +9,18 @@
 <!--  -->
 <template>
   <div>
-    <div class="bg-white w-100" >
+    <div class="bg-white w-100 shadow">
       <div class="w py-3 d-flex ai-center">
-        <img src="@/assets/img/logo.png" alt height="40px" />
+        <router-link to="/">
+          <img src="@/assets/img/logo.png" alt height="40px" />
+        </router-link>
         <span class="mx-5 fs-xxl text-grey">|</span>
         <span class="fs-xl text-grey">欢迎登录</span>
       </div>
     </div>
     <div class="content">
       <div class="w h-100 d-flex ai-center jc-end">
-        <div class="bg-white py-4 px-4" style="width: 400px;">
+        <div class="bg-white py-4 px-4 shadow-1" style="width: 400px;">
           <div class="d-flex jc-around fs-xl mt-4 text-grey">
             <span :class="{'active': loginStyle}" class="cp" @click="loginStyle = true">账号登录</span>
             <span class="fs-xxl">|</span>

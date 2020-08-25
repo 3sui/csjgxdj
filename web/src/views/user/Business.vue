@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-13 17:05:14
- * @LastEditTime: 2020-08-18 16:20:55
+ * @LastEditTime: 2020-08-21 13:59:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \常州平台\web\src\views\user\Business.vue
@@ -11,12 +11,12 @@
   <div id="register">
     <div class="w-100 bg-white mb-5">
       <div class="w py-2">
-        <router-link to="/">
+        <router-link to="/index">
           <img src="../../assets/img/logo.png" height="60px" alt />
         </router-link>
       </div>
     </div>
-    <el-steps
+    <!-- <el-steps
       class="w bg-white"
       :active="1"
       finish-status="success"
@@ -26,8 +26,18 @@
       <el-step title="用户注册"></el-step>
       <el-step title="加入企业"></el-step>
       <el-step title="完成"></el-step>
+    </el-steps>-->
+    <el-steps
+      class="w bg-white shadow px-5 py-3"
+      :active="1"
+      finish-status="success"
+      style="margin-bottom: 20px;"
+    >
+      <el-step title="用户注册"></el-step>
+      <el-step title="加入企业"></el-step>
+      <el-step title="完成"></el-step>
     </el-steps>
-    <div class="w bg-white p-1">
+    <div class="w bg-white p-1 shadow">
       <div v-if="!isSubmit">
         <h2 class="p-4 border-bottom">{{businessHas ? '加入企业':'注册企业' }}</h2>
         <el-form :model="form" class="form" :rules="rules" ref="form">

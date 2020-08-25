@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-11 16:27:05
- * @LastEditTime: 2020-08-12 16:04:08
+ * @LastEditTime: 2020-08-20 14:36:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \常州平台\web\src\components\home\AppCenter.vue
@@ -40,7 +40,7 @@
               <h3 class="fs-xxl">服装鞋包热门测试套餐</h3>
               <p class="my-2 text-grey">电商平台入驻,太保天猫京东认可</p>
               <div class="w-100 text-center">
-                <img src="@/assets/img/banner1.png" alt width="100%" height="60" />
+                <img src="@/assets/img/ad1.jpg"  alt />
               </div>
               <span class="hot">hot</span>
             </div>
@@ -85,10 +85,10 @@ export default {
 }
 .left {
   width: 25%;
-  height: 350px;
+  height: 415px;
   background-color: red;
-  background-image: url("../../assets/img/banner2.jpeg");
-  background-size: contain;
+  background: url("../../assets/img/ad.jpg") no-repeat;
+  background-size: cover;
 
   > div {
     position: relative;
@@ -99,7 +99,7 @@ export default {
     line-height: 18px;
   }
   .show {
-    margin-top: 200px;
+    margin-top: 260px;
     padding: 8px 0;
     border: 1px solid #fff;
   }

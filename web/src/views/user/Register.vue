@@ -1,14 +1,14 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-09 09:07:18
- * @LastEditTime: 2020-08-18 17:16:01
+ * @LastEditTime: 2020-08-19 16:14:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\views\user\register.vue
 --> 
 <!--  -->
 <template>
-  <div id="register">
+  <div id="register" class="pb-5">
     <div class="w-100 bg-white mb-5">
       <div class="w py-2">
         <router-link to="/">
@@ -16,19 +16,40 @@
         </router-link>
       </div>
     </div>
-    <el-steps class="w bg-white" :active="0" finish-status="success" simple style="margin-bottom: 20px;">
+    <!-- <el-steps class="w bg-white shadow" :active="0" finish-status="success" simple style="margin-bottom: 20px;">
+      <el-step title="用户注册"></el-step>
+      <el-step title="加入企业"></el-step>
+      <el-step title="完成"></el-step>
+    </el-steps>-->
+    <el-steps
+      class="w bg-white shadow px-5 py-3"
+      :active="0"
+      finish-status="success"
+      style="margin-bottom: 20px;"
+    >
       <el-step title="用户注册"></el-step>
       <el-step title="加入企业"></el-step>
       <el-step title="完成"></el-step>
     </el-steps>
-    <div class="w bg-white p-1">
+    <div class="w bg-white p-1 shadow">
       <div>
         <h2 class="p-4 border-bottom">欢迎注册账号</h2>
         <el-form :model="form" class="form" :rules="rules" ref="form">
+          <el-form-item prop="userName">
+            <el-input v-model="form.userName" placeholder="会员姓名长度2-30，可使用中文，大小写字母，数字，下划线">
+              <div class="text-center" style="width: 80px;" slot="prepend">会员姓名</div>
+            </el-input>
+          </el-form-item>
           <el-form-item prop="phone">
             <el-input v-model.number.trim="form.phone">
               <!-- <div style="width: 60px;background-color: red" slot="prepend">手机号</div> -->
               <div class="text-center" style="width: 80px;" slot="prepend">手机号码</div>
+            </el-input>
+          </el-form-item>
+
+          <el-form-item prop="password">
+            <el-input v-model.trim="form.password" show-password>
+              <div class="text-center" style="width: 80px;" slot="prepend">密码</div>
             </el-input>
           </el-form-item>
           <el-form-item prop="verCode">
@@ -40,16 +61,6 @@
                 slot="append"
                 :disabled="!disabledCodeBtn"
               >{{codeText}}</el-button>
-            </el-input>
-          </el-form-item>
-          <el-form-item prop="userName">
-            <el-input v-model="form.userName" placeholder="会员姓名长度2-30，可使用中文，大小写字母，数字，下划线">
-              <div class="text-center" style="width: 80px;" slot="prepend">会员姓名</div>
-            </el-input>
-          </el-form-item>
-          <el-form-item prop="password">
-            <el-input v-model.trim="form.password" show-password>
-              <div class="text-center" style="width: 80px;" slot="prepend">设置密码</div>
             </el-input>
           </el-form-item>
           <el-form-item prop="checkout">
@@ -77,7 +88,6 @@
           </el-form-item>
         </el-form>
       </div>
-     
     </div>
     <p
       class="text-center mt-5 fs-lg text-grey"

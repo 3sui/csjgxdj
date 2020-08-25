@@ -1,21 +1,21 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-12 16:35:30
- * @LastEditTime: 2020-08-17 13:47:26
+ * @LastEditTime: 2020-08-20 14:37:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \常州平台\web\src\components\home\App.vue
 -->
 <!--  -->
 <template>
-  <div class="p-5">
+  <div class="p-5 bg-white m-3">
     <div class="w text-center">
       <h2 class="mb-5 fs-xxl-3">核心组件介绍</h2>
       <div class="w d-flex jc-center container ai-center">
         <div class="item" :class="{ active: isActive === 0}" @mouseenter="isActive = 0">
           <div :class="{dn: isActive === 0}" class="simple">
             <img src="@/assets/img/banner1.png" alt width="100px" height="100px" />
-            <p>设备接入与管理</p>
+            <p class="mt-4 fs-xl">设备接入与管理</p>
           </div>
           <div :class="{dn: isActive !== 0}" class="full p-4">
             <h2 class>设备接入与管理</h2>
@@ -95,7 +95,7 @@
         <div class="item mx-2" :class="{ active: isActive === 1}" @mouseenter="isActive = 1">
           <div :class="{dn: isActive === 1}" class="simple">
             <img src="@/assets/img/banner1.png" alt width="100px" height="100px" />
-            <p>设备接入与管理</p>
+            <p class="mt-4 fs-xl">设备接入与管理</p>
           </div>
           <div :class="{dn: isActive !== 1}" class="full p-4">
             <h2 class>设备接入与管理</h2>
@@ -175,7 +175,7 @@
         <div class="item" :class="{ active: isActive === 2}" @mouseenter="isActive = 2">
           <div :class="{dn: isActive === 2}" class="simple">
             <img src="@/assets/img/banner1.png" alt width="100px" height="100px" />
-            <p>设备接入与管理</p>
+            <p class="mt-4 fs-xl">设备接入与管理</p>
           </div>
           <div :class="{dn: isActive !== 2}" class="full p-4">
             <h2 class>设备接入与管理</h2>
@@ -321,7 +321,7 @@ export default {
       }
     }
     .full {
-    transition: 0.5s all;
+      transition: 0.5s all;
 
       .table {
         border: 1px solid #eee;

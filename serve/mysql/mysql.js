@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-15 10:16:23
- * @LastEditTime: 2020-07-15 10:26:44
+ * @LastEditTime: 2020-08-19 09:41:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \serve\mysql\mysql.js
@@ -49,7 +49,7 @@ module.exports = app => {
         console.log("Mysql重连接成功! 次数:" + cnt);
     }
 
-    setInterval(conn, 50 * 10000); //循环执行
+    setInterval(conn, 50 * 100000); //循环执行
 
     return query
 }

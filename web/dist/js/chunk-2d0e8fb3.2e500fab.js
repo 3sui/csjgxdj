@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0e8fb3"],{"8c1c":function(e,n,t){"use strict";t.r(n);var c=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[t("router-link",{attrs:{to:"/produceDetail"}},[e._v("选择设备接入")])],1)},o=[],r={name:"interconnection",data:function(){return{}},components:{},computed:{},created:function(){},methods:{}},u=r,a=t("2877"),i=Object(a["a"])(u,c,o,!1,null,"d77e663e",null);n["default"]=i.exports}}]);
+//# sourceMappingURL=chunk-2d0e8fb3.2e500fab.js.map

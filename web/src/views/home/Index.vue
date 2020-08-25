@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-09 17:31:22
- * @LastEditTime: 2020-08-12 16:42:04
+ * @LastEditTime: 2020-08-19 14:58:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\views\home\Index.vue
@@ -14,7 +14,7 @@
     <Information />
     <!-- <SearchInfo /> -->
     <AppCenter />
-    <Introduction />
+    <!-- <Introduction /> -->
     <App />
     <Recommend />
   </div>

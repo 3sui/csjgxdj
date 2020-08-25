@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-11 14:21:46
- * @LastEditTime: 2020-08-12 15:29:50
+ * @LastEditTime: 2020-08-20 16:12:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \常州平台\web\src\components\home\Statistics.vue
@@ -10,14 +10,14 @@
 <template>
   <div class="bg-white">
     <div class="w d-flex jc-between ai-center">
-      <div class="left d-flex jc-around p-5">
+      <div class="left d-flex jc-between py-5">
         <div class="text-left" v-for="(item, index) in tableData" :key="index">
           <p class="fs-xxl-4 text-dark-1">{{item.num}}</p>
-          <div class="my-4 line"></div>
-          <p class="fs-xl">{{item.title}}</p>
+          <!-- <div class="my-4 line"></div> -->
+          <p class="fs-xl mt-4">{{item.title}}</p>
         </div>
       </div>
-      <div class="right text-center">
+      <div v-if="!userName" class="right text-center">
         <div>
           <img src="@/assets/img/logo.png" alt width="230px" />
         </div>
@@ -27,15 +27,24 @@
           <router-link to="/register" tag="span" class="register ml-3">注册</router-link>
         </p>
       </div>
+      <div v-else class="right text-center">
+        <div>
+          <img src="@/assets/img/default_handsome.jpg" style="border-radius: 50%;" alt width="40px" />
+        </div>
+        <p class="fs-xxl my-3">Hi {{userName}}</p>
+        <p class="fs-xxl my-3">欢迎来到长三角工业互联网平台</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import bus from '../../bus'
 export default {
   name: "Statistics",
   data() {
     return {
+      userName: "",
       tableData: [
         { title: "入住会员", num: 0, count: 3000 },
         { title: "上云设备", num: 0, count: 300 },
@@ -50,8 +59,14 @@ export default {
   components: {},
 
   computed: {},
+  created(){
+    bus.$on('logout', () => {
+      this.fetchUserInfo()
+    })
+  },
   mounted() {
     this.countUp();
+    this.fetchUserInfo();
   },
   methods: {
     valueFlash(dom, val, s) {
@@ -83,6 +98,10 @@ export default {
       for (let i = 0; i < this.tableData.length; i++) {
         this.timer(i);
       }
+    },
+    fetchUserInfo() {
+      window.console.log(localStorage.userName);
+      this.userName = localStorage.userName;
     },
   },
 };

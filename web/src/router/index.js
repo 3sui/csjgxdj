@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-02 09:16:50
- * @LastEditTime: 2020-08-17 11:19:00
+ * @LastEditTime: 2020-08-21 16:15:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\router\index.js
@@ -80,6 +80,30 @@ const routes = [{
         path: '/back',
         name: 'Back',
         component: () => import('../views/control/Back.vue')
+      }, {
+        path: '/AddUserInfo',
+        name: 'AddUserInfo',
+        component: () => import('../views/user/AddUserInfo.vue')
+      }, {
+        path: '/AddBusinessInfo',
+        name: 'AddBusinessInfo',
+        component: () => import('../views/user/AddBusinessInfo.vue')
+      }, {
+        path: '/interconnection',
+        name: 'interconnection',
+        component: () => import('../views/Interconnection/Interconnection.vue')
+      }, {
+        path: '/ProduceInfo',
+        name: 'ProduceInfo',
+        component: () => import('../views/Interconnection/ProduceInfo.vue')
+      }, {
+        path: '/supply',
+        name: 'supply',
+        component: () => import('../views/docking/Supply.vue')
+      }, {
+        path: '/Demand',
+        name: 'Demand',
+        component: () => import('../views/docking/Demand.vue')
       }
     ]
   }, {

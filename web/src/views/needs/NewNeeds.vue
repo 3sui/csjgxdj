@@ -128,134 +128,129 @@
                 show-word-limit
               ></el-input>
             </el-form-item>
-
           </div>
           <div class="team">商务条款</div>
           <div class="team-con">
-              <el-form-item label="商务条款" prop="type" label-width="150px">
-                <el-checkbox-group v-model="ruleForm.type">
-                  <el-checkbox label="货到付款" name="type"></el-checkbox>
-                  <el-checkbox label="预付款" name="type"></el-checkbox>
-                  <el-checkbox label="其他" name="type"></el-checkbox>
-                </el-checkbox-group>
-              </el-form-item>
-              <el-form-item label="付款方式" prop="resource" label-width="150px">
-                <el-radio-group v-model="ruleForm.resource">
-                  <el-radio label="支票"></el-radio>
-                  <el-radio label="汇票"></el-radio>
-                  <el-radio label="本票"></el-radio>
-                  <el-radio label="现金"></el-radio>
-                  <el-radio label="银行转账"></el-radio>
-                  <el-radio label="其他"></el-radio>
-                </el-radio-group>
-              </el-form-item>
-              <el-form-item label="发票类型" prop="resource" label-width="150px">
-                <el-radio-group v-model="ruleForm.resource">
-                  <el-radio label="增值税发票"></el-radio>
-                  <el-radio label="普通发票"></el-radio>
-                  <el-radio label="无需发票"></el-radio>
-                </el-radio-group>
-              </el-form-item>
-              <el-form-item label="承运方" prop="resource" label-width="150px">
-                <el-radio-group v-model="ruleForm.resource">
-                  <el-radio label="供应方"></el-radio>
-                  <el-radio label="采购方"></el-radio>
-                </el-radio-group>
-              </el-form-item>
+            <el-form-item label="商务条款" prop="type" label-width="150px">
+              <el-checkbox-group v-model="ruleForm.type">
+                <el-checkbox label="货到付款" name="type"></el-checkbox>
+                <el-checkbox label="预付款" name="type"></el-checkbox>
+                <el-checkbox label="其他" name="type"></el-checkbox>
+              </el-checkbox-group>
+            </el-form-item>
+            <el-form-item label="付款方式" prop="resource" label-width="150px">
+              <el-radio-group v-model="ruleForm.resource">
+                <el-radio label="支票"></el-radio>
+                <el-radio label="汇票"></el-radio>
+                <el-radio label="本票"></el-radio>
+                <el-radio label="现金"></el-radio>
+                <el-radio label="银行转账"></el-radio>
+                <el-radio label="其他"></el-radio>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item label="发票类型" prop="resource" label-width="150px">
+              <el-radio-group v-model="ruleForm.resource">
+                <el-radio label="增值税发票"></el-radio>
+                <el-radio label="普通发票"></el-radio>
+                <el-radio label="无需发票"></el-radio>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item label="承运方" prop="resource" label-width="150px">
+              <el-radio-group v-model="ruleForm.resource">
+                <el-radio label="供应方"></el-radio>
+                <el-radio label="采购方"></el-radio>
+              </el-radio-group>
+            </el-form-item>
 
-              <el-form-item label="收货地址" prop="resource" label-width="150px">
-                <choosearea></choosearea>
-              </el-form-item>
-              <el-form-item label="详细地址" prop="name" label-width="150px">
-                <el-input
-                  type="text"
-                  placeholder="请输入内容"
-                  v-model="text"
-                  maxlength="20"
-                  show-word-limit
-                ></el-input>
-              </el-form-item>
-                 <el-form-item label="交付类型" prop="resource" label-width="150px">
-                <el-radio-group v-model="ruleForm.resource">
-                  <el-radio label="一次性交付"></el-radio>
-                  <el-radio label="分批交付"></el-radio>
-                </el-radio-group>
-              </el-form-item>
-              <el-form-item label="交付对象" prop="name" label-width="150px">
-                <el-input
-                  type="text"
-                  placeholder="请输入内容"
-                  v-model="text"
-                  maxlength="30"
-                  show-word-limit
-                ></el-input>
-              </el-form-item>
-              <el-form-item label="交付要求说明" prop="name" label-width="150px">
-                <el-input
-                  type="text"
-                  placeholder="请输入内容"
-                  v-model="text"
-                  maxlength="50"
-                  show-word-limit
-                ></el-input>
-              </el-form-item>
+            <el-form-item label="收货地址" prop="resource" label-width="150px">
+              <choosearea></choosearea>
+            </el-form-item>
+            <el-form-item label="详细地址" prop="name" label-width="150px">
+              <el-input
+                type="text"
+                placeholder="请输入内容"
+                v-model="text"
+                maxlength="20"
+                show-word-limit
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="交付类型" prop="resource" label-width="150px">
+              <el-radio-group v-model="ruleForm.resource">
+                <el-radio label="一次性交付"></el-radio>
+                <el-radio label="分批交付"></el-radio>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item label="交付对象" prop="name" label-width="150px">
+              <el-input
+                type="text"
+                placeholder="请输入内容"
+                v-model="text"
+                maxlength="30"
+                show-word-limit
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="交付要求说明" prop="name" label-width="150px">
+              <el-input
+                type="text"
+                placeholder="请输入内容"
+                v-model="text"
+                maxlength="50"
+                show-word-limit
+              ></el-input>
+            </el-form-item>
           </div>
-          
+
           <div class="team">发布方式</div>
           <div class="team-con">
-             </el-form-item>
-                 <el-form-item label="发布方式" prop="resource" label-width="150px">
-                <el-radio-group v-model="ruleForm.resource">
-                  <el-radio label="全网发布"></el-radio>
-                  <el-radio label="邀请供应商"></el-radio>
-                </el-radio-group>
-              </el-form-item>
-
+            <!-- </el-form-item> -->
+            <el-form-item label="发布方式" prop="resource" label-width="150px">
+              <el-radio-group v-model="ruleForm.resource">
+                <el-radio label="全网发布"></el-radio>
+                <el-radio label="邀请供应商"></el-radio>
+              </el-radio-group>
+            </el-form-item>
           </div>
-
 
           <div class="team">联系方式</div>
           <div class="team-con">
-             <el-form-item label="联系人" prop="name" label-width="150px">
-                <el-input
-                  type="text"
-                  placeholder="请输入内容"
-                  v-model="text"
-                  maxlength="30"
-                  show-word-limit
-                ></el-input>
-              </el-form-item>
-               <el-form-item label="联系方式" prop="name" label-width="150px">
-                <el-input
-                  type="text"
-                  placeholder="请输入内容"
-                  v-model="text"
-                  maxlength="30"
-                  show-word-limit
-                ></el-input>
-              </el-form-item>
-               <el-form-item label="email" prop="name" label-width="150px">
-                <el-input
-                  type="text"
-                  placeholder="请输入内容"
-                  v-model="text"
-                  maxlength="30"
-                  show-word-limit
-                ></el-input>
-              </el-form-item>
+            <el-form-item label="联系人" prop="name" label-width="150px">
+              <el-input
+                type="text"
+                placeholder="请输入内容"
+                v-model="text"
+                maxlength="30"
+                show-word-limit
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="联系方式" prop="name" label-width="150px">
+              <el-input
+                type="text"
+                placeholder="请输入内容"
+                v-model="text"
+                maxlength="30"
+                show-word-limit
+              ></el-input>
+            </el-form-item>
+            <el-form-item label="email" prop="name" label-width="150px">
+              <el-input
+                type="text"
+                placeholder="请输入内容"
+                v-model="text"
+                maxlength="30"
+                show-word-limit
+              ></el-input>
+            </el-form-item>
           </div>
           <div class="team-con">
             <el-form-item>
               <div class="btn">
-               <el-button type="primary" @click="onSubmit">预览</el-button>
-               <el-button type="primary" @click="onSubmit">保存</el-button>
-               <el-button type="success" @click="onSubmit">发布</el-button>
-               <el-button type="info" @click="onSubmit">取消</el-button>
+                <el-button type="primary" @click="onSubmit">预览</el-button>
+                <el-button type="primary" @click="onSubmit">保存</el-button>
+                <el-button type="success" @click="onSubmit">发布</el-button>
+                <el-button type="info" @click="onSubmit">取消</el-button>
               </div>
-           </el-form-item>
-           
+            </el-form-item>
           </div>
-
         </el-form>
       </div>
     </div>
@@ -434,9 +429,8 @@ export default {
 
 .team-con {
   width: 80%;
-  margin:  auto;
+  margin: auto;
   padding: 20px 0;
-
 }
 
 .sumarry {
@@ -448,8 +442,8 @@ export default {
   line-height: 40px;
 }
 
-.team-con .btn{
-width: 40%;
-margin: auto;
+.team-con .btn {
+  width: 40%;
+  margin: auto;
 }
 </style>

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-13 16:13:40
- * @LastEditTime: 2020-08-18 17:22:04
+ * @LastEditTime: 2020-08-21 15:54:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \serve\routers\account\index.js
@@ -61,18 +61,17 @@ module.exports = app => {
         sql = `select * from user_info where phone = '${account}' and is_deleted = 0`
         let a = await connection(sql)
         console.log(a);
-
-        console.log(a[0].user_name);
-
-
         assert(a.length, 422, '用户不存在')
         password = md5(md5(md5(password)))
         console.log(password);
         assert(a[0].password === password, 422, '密码不正确')
+        let userInfo = {
+            id: a[0].id,
+        }
         results.success = true
         results.message = '登录成功'
         results.userInfo = a[0]
-        results.token = jwt.sign(a[0].id, app.get('secret'))
+        results.token = jwt.sign(userInfo, app.get('secret'))
 
         res.send(results)
 
@@ -152,7 +151,8 @@ module.exports = app => {
             let a = await connection(sql)
             console.log(a);
             let userInfo = {
-                id: a.insertId
+                id: a.insertId,
+
             }
             results.success = true
             results.message = '注册成功'
@@ -223,6 +223,9 @@ module.exports = app => {
         res.send(results)
     })
 
+    router.get('/123', (req, res) => {
+        console.log(md5(md5(md5('kxwGed4F'))));
+    })
 
 
 

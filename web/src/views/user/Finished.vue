@@ -1,22 +1,22 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-17 11:17:26
- * @LastEditTime: 2020-08-18 17:10:16
+ * @LastEditTime: 2020-08-21 13:59:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \常州平台\web\src\views\user\Finished.vue
 -->
 <!--  -->
 <template>
-  <div>
+  <div class="pb-5">
     <div class="w-100 bg-white mb-5">
       <div class="w py-2">
-        <router-link to="/">
+        <router-link to="/index">
           <img src="../../assets/img/logo.png" height="60px" alt />
         </router-link>
       </div>
     </div>
-    <el-steps
+    <!-- <el-steps
       class="w bg-white"
       :active="2"
       finish-status="success"
@@ -26,8 +26,18 @@
       <el-step title="用户注册"></el-step>
       <el-step title="加入企业"></el-step>
       <el-step title="完成"></el-step>
+    </el-steps>-->
+    <el-steps
+      class="w bg-white shadow px-5 py-3"
+      :active="2"
+      finish-status="success"
+      style="margin-bottom: 20px;"
+    >
+      <el-step title="用户注册"></el-step>
+      <el-step title="加入企业"></el-step>
+      <el-step title="完成"></el-step>
     </el-steps>
-    <div class="w bg-white p-1">
+    <div class="w bg-white p-1 shadow">
       <div>
         <div class="text-center p-5">
           <svg
@@ -49,7 +59,7 @@
           <h2 class="p-5 fs-xxl-3">恭喜您注册成功</h2>
           <div class="btn">
             <router-link to="index" tag="span" class="btn1">进入平台</router-link>
-            <router-link to="#" tag="span" class="btn2">完善个人信息</router-link>
+            <router-link to="AddUserInfo" tag="span" class="btn2">完善个人信息</router-link>
             <router-link to="#" tag="span" class="btn2">完善企业信息</router-link>
 
             <!-- 

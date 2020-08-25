@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-08 17:13:20
- * @LastEditTime: 2020-08-17 17:28:49
+ * @LastEditTime: 2020-08-21 15:36:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \serve\server.js
@@ -52,6 +52,9 @@ require('./mysql/mysql.js')(app)
 // require('./route/mobile/index')(app)
 
 require('./routers/account/index')(app)
+require('./routers/Interconnection/index')(app)
+require('./routers/docking/index')(app)
+
 
 app.set('secret', 'password')
 

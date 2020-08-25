@@ -39,69 +39,75 @@
         <div class="tabletop">
           <el-row :gutter="20">
             <el-col span="3">
-              <el-checkbox name="type"></el-checkbox>  全选
+              <el-checkbox name="type"></el-checkbox>全选
             </el-col>
             <el-col span="12">商品信息</el-col>
             <el-col span="3">状态</el-col>
             <el-col span="6">操作</el-col>
           </el-row>
         </div>
-        <div class="tableitem" v-for="item,index in tabledata">
+        <div class="tableitem" v-for="(item,index) in tabledata" :key="index">
           <div class="tabletop">
             <el-row :gutter="20">
               <el-col span="2">
                 <el-checkbox name="type"></el-checkbox>
               </el-col>
-               <el-col span="2">
-               {{index+1}}
-              </el-col>
-              <el-col span="8">{{item.productname}}
-                  <el-tag type="warning" effect="dark"  size="mini">标签
-                </el-tag>
+              <el-col span="2">{{index+1}}</el-col>
+              <el-col span="8">
+                {{item.productname}}
+                <el-tag type="warning" effect="dark" size="mini">标签</el-tag>
               </el-col>
             </el-row>
           </div>
           <div class="tablecontent">
             <el-row :gutter="20">
-              <el-col span="3" >
-                  <div class="contain"><img :src="item.image "alt="" width="80px" height="80px">  </div>
-                  
+              <el-col span="3">
+                <div class="contain">
+                  <img :src="item.image " alt width="80px" height="80px" />
+                </div>
               </el-col>
               <el-col span="5">
-                   <div class="contain">
-                   <p class="d-flex  justify-content-between" ><span class="tabletext">创建日期：</span><span class="tabletext">{{item.created_time}}</span></p>
-                    <p class="d-flex  justify-content-between" ><span class="tabletext">库存量：</span><span class="tabletext">{{item.inventory}}</span></p>
-                   </div>
+                <div class="contain">
+                  <p class="d-flex justify-content-between">
+                    <span class="tabletext">创建日期：</span>
+                    <span class="tabletext">{{item.created_time}}</span>
+                  </p>
+                  <p class="d-flex justify-content-between">
+                    <span class="tabletext">库存量：</span>
+                    <span class="tabletext">{{item.inventory}}</span>
+                  </p>
+                </div>
               </el-col>
               <el-col span="7">
-                   <div class="contain">
-                   <p class="d-flex  justify-content-between" ><span class="tabletext">操作人：</span><span class="tabletext">{{item.created_by}}</span></p>
-                    <p class="d-flex  justify-content-between" ><span class="tabletext">所属分类：</span><span class="tabletext">{{item.class1}}>{{item.class2}}>{{item.class3}}</span></p>
-                   </div>
+                <div class="contain">
+                  <p class="d-flex justify-content-between">
+                    <span class="tabletext">操作人：</span>
+                    <span class="tabletext">{{item.created_by}}</span>
+                  </p>
+                  <p class="d-flex justify-content-between">
+                    <span class="tabletext">所属分类：</span>
+                    <span class="tabletext">{{item.class1}}>{{item.class2}}>{{item.class3}}</span>
+                  </p>
+                </div>
               </el-col>
               <el-col span="3">
-                  <div class="contain">
-                  {{item.state}}
-                  </div>
+                <div class="contain">{{item.state}}</div>
               </el-col>
               <el-col span="6">
-                  <div class="contain">
-                     <el-button size="mini">下架</el-button>
-                     <el-button size="mini">明细</el-button>
-                     <el-button size="mini">预览</el-button>
-                  </div>
+                <div class="contain">
+                  <el-button size="mini">下架</el-button>
+                  <el-button size="mini">明细</el-button>
+                  <el-button size="mini">预览</el-button>
+                </div>
               </el-col>
             </el-row>
           </div>
         </div>
 
-         <div class="page"> <el-pagination background layout="prev, pager, next" :total="1000" class="page"></el-pagination></div>
-
+        <div class="page">
+          <el-pagination background layout="prev, pager, next" :total="1000" class="page"></el-pagination>
+        </div>
       </div>
-
-     
-      
-    </div>
     </div>
   </div>
 </template>
@@ -124,7 +130,7 @@ export default {
           class3: "其他",
           state: "已发布",
         },
-         {
+        {
           productname: "北自所龙门激光焊租赁服务",
           image: "https://cdnfile.htres.cn/upload/yunfile/16/04stsbe2hl2i80",
           created_time: "2020-07-28",
@@ -135,7 +141,7 @@ export default {
           class3: "其他",
           state: "已发布",
         },
-         {
+        {
           productname: "北自所龙门激光焊租赁服务",
           image: "https://cdnfile.htres.cn/upload/yunfile/16/04stsbe2hl2i80",
           created_time: "2020-07-28",
@@ -146,7 +152,7 @@ export default {
           class3: "其他",
           state: "已发布",
         },
-         {
+        {
           productname: "北自所龙门激光焊租赁服务",
           image: "https://cdnfile.htres.cn/upload/yunfile/16/04stsbe2hl2i80",
           created_time: "2020-07-28",
@@ -201,29 +207,26 @@ export default {
   margin: 10px auto;
   border: 1px solid #dddddd;
 }
-.tableitem:hover{
-     
-     box-shadow: 0 0 10px #999999;;
-
+.tableitem:hover {
+  box-shadow: 0 0 10px #999999;
 }
 
-.tabletext{
-    color: #383838;
-    line-height: 20px;
-    overflow: hidden;
-    
+.tabletext {
+  color: #383838;
+  line-height: 20px;
+  overflow: hidden;
 }
 
-.contain{
-    padding: 20px;
-    width: 95%;
-    margin: auto;
-    text-align: center;
+.contain {
+  padding: 20px;
+  width: 95%;
+  margin: auto;
+  text-align: center;
 }
 
-.page{
-    background-color: white;
-   margin: 30px auto ;
-    text-align: center
+.page {
+  background-color: white;
+  margin: 30px auto;
+  text-align: center;
 }
 </style>
