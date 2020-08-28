@@ -9,6 +9,10 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const bodyParse = require('body-parser')
+
+const fs = require('fs')
+
 
 app.use(express.json())
 app.use(cors({
@@ -54,6 +58,17 @@ require('./mysql/mysql.js')(app)
 require('./routers/account/index')(app)
 require('./routers/Interconnection/index')(app)
 require('./routers/docking/index')(app)
+require('./routers/needs/index')(app)
+require('./routers/backmanage/index')(app)
+
+const uploads= require('./routers/backmanage/uploads')
+
+
+
+
+app.use('/api/backmanage', uploads);
+
+
 
 
 app.set('secret', 'password')
@@ -98,13 +113,7 @@ app.use((err, req, res, next) => {
     })
 })
 
-// app.listen(8085, (err) => {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log('服务器已连接,端口号8085');
-//     }
-// })
+
 
 app.listen(8892, (err) => {
     if (err) {
