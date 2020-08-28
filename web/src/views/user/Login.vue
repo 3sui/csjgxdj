@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-06 16:21:51
- * @LastEditTime: 2020-08-21 14:00:24
+ * @LastEditTime: 2020-08-27 21:24:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\components\login\Login.vue
@@ -93,6 +93,7 @@
 
 <script>
 // import img from "../../assets/img/logo.png";
+import md5 from "md5";
 export default {
   name: "Login",
   data() {
@@ -164,6 +165,7 @@ export default {
             if (res.data.success) {
               this.dialogFormVisible = false;
               // this.$message.success(res.data.message);
+
               this.login();
             } else {
               this.verCode.code = "";
@@ -171,6 +173,25 @@ export default {
               this.fetchCaptcha();
             }
           });
+
+          // this.axios({
+          //   method: "post",
+          //   url: "http://auth.mst.casicloud.com/1/user/auth",
+          //   headers: {
+          //     client_id: "3e55qge5xjvagi1n",
+          //   },
+          //   data: {
+          //     client_id: "3e55qge5xjvagi1n",
+
+          //     user_name: "17621045381",
+          //     password: "wq2581228123",
+          //     is_encrypt: true,
+          //   },
+          // })
+          //   .then((res) => {
+          //     window.console.log(res);
+          //   })
+          //   .catch((err) => {});
         } else {
           console.log("error submit!!");
           return false;
@@ -180,21 +201,41 @@ export default {
 
     //验证账号密码
     login() {
+      // this.axios({
+      //   method: "post",
+      //   url: "/account/login",
+      //   data: this.form,
+      // }).then((res) => {
+      //   if (res.data.success) {
+      //     this.$message.success(res.data.message);
+      //     localStorage.token = res.data.token;
+      //     localStorage.userName = res.data.userInfo.user_name;
+
+      //     this.$router.push("/");
+      //   } else {
+      //     this.$message.success(res.data.message);
+      //   }
+      // });
+
       this.axios({
         method: "post",
         url: "/account/login",
-        data: this.form,
-      }).then((res) => {
-        if (res.data.success) {
-          this.$message.success(res.data.message);
-          localStorage.token = res.data.token;
-          localStorage.userName = res.data.userInfo.user_name;
-
-          this.$router.push("/");
-        } else {
-          this.$message.success(res.data.message);
-        }
-      });
+        data: {
+          user_name: this.form.account,
+          password: this.form.password,
+        },
+      })
+        .then((res) => {
+          window.console.log(res.data);
+          if (res.data.code === 200) {
+            this.$message.success("登录成功");
+            localStorage.access_token = res.data.data.access_token;
+            this.$router.push("/");
+          } else {
+            this.$message.error(res.data.msg);
+          }
+        })
+        .catch((err) => {});
     },
   },
 };

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-08-11 14:21:46
- * @LastEditTime: 2020-08-20 16:12:36
+ * @LastEditTime: 2020-08-27 22:55:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \常州平台\web\src\components\home\Statistics.vue
@@ -17,7 +17,7 @@
           <p class="fs-xl mt-4">{{item.title}}</p>
         </div>
       </div>
-      <div v-if="!userName" class="right text-center">
+      <div v-if="!$store.state.user" class="right text-center">
         <div>
           <img src="@/assets/img/logo.png" alt width="230px" />
         </div>
@@ -31,7 +31,7 @@
         <div>
           <img src="@/assets/img/default_handsome.jpg" style="border-radius: 50%;" alt width="40px" />
         </div>
-        <p class="fs-xxl my-3">Hi {{userName}}</p>
+        <p class="fs-xxl my-3">Hi {{$store.state.user.fullname}}</p>
         <p class="fs-xxl my-3">欢迎来到长三角工业互联网平台</p>
       </div>
     </div>
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import bus from '../../bus'
+import bus from "../../bus";
 export default {
   name: "Statistics",
   data() {
@@ -59,10 +59,10 @@ export default {
   components: {},
 
   computed: {},
-  created(){
-    bus.$on('logout', () => {
-      this.fetchUserInfo()
-    })
+  created() {
+    bus.$on("logout", () => {
+      this.fetchUserInfo();
+    });
   },
   mounted() {
     this.countUp();

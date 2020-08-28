@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-02 09:20:17
- * @LastEditTime: 2020-08-18 09:04:04
+ * @LastEditTime: 2020-08-27 11:22:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\plugins\axios.js
@@ -18,8 +18,8 @@ import router from '../router/index'
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 let config = {
-  // baseURL: 'http://58.216.47.108:8892'
-  baseURL: 'http://127.0.0.1:8892/api',
+  // baseURL: 'http://58.216.47.108:8892',
+  baseURL: 'http://127.0.0.1:8892/api', 
   // baseURL: process.env.baseURL || process.env.apiUrl || ""
   // timeout: 60 * 1000, // Timeout
   withCredentials: true, // Check cross-site Access-Control
@@ -59,7 +59,9 @@ _axios.interceptors.response.use(
       })
       window.console.log(error.response.status);
       if (error.response.status === 401) {
-        router.push('/login')
+        // router.push('/login')
+        $store.commit('DialogVisible')
+
       } else if (error.response.status === 403) {
         router.push('/403')
         // Vue.router.push('403')

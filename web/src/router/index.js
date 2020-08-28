@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-02 09:16:50
- * @LastEditTime: 2020-08-21 16:15:38
+ * @LastEditTime: 2020-08-26 14:45:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\router\index.js
@@ -14,13 +14,13 @@ Vue.use(VueRouter)
 
 const routes = [{
     path: '/',
-    redirect: '/index'
+    redirect: '/home'
   }, {
-    path: '/Home',
+    path: '/home',
     name: 'Home',
     component: () => import('../views/Home.vue'),
     children: [{
-        path: '/index',
+        path: '/',
         name: 'Index',
         component: () => import('../views/home/Index.vue')
       },{

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-08 17:13:20
- * @LastEditTime: 2020-08-21 15:36:37
+ * @LastEditTime: 2020-08-27 16:22:45
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \serve\server.js
@@ -13,6 +13,15 @@ const bodyParse = require('body-parser')
 
 const fs = require('fs')
 
+const axios = require('axios')
+
+let config = {
+    baseURL: 'http://auth.mst.casicloud.com',
+    // baseURL: process.env.baseURL || process.env.apiUrl || ""
+    timeout: 60 * 1000, // Timeout
+    withCredentials: true, // Check cross-site Access-Control
+};
+app.axios = axios.create(config)
 
 app.use(express.json())
 app.use(cors({
@@ -72,7 +81,8 @@ app.use('/api/backmanage', uploads);
 
 
 app.set('secret', 'password')
-
+app.set('client_id', '3e55qge5xjvagi1n')
+app.set('clientSecret', 'ecc3d78f5a5a42089920fe8b15180608')
 
 app.get('/abc', (res, req) => {
     captcha(app)

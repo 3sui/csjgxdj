@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-02 11:00:47
- * @LastEditTime: 2020-08-24 17:12:59
+ * @LastEditTime: 2020-08-27 22:51:48
  * @LastEditors: Please set LastEditors
  * @Description: 头部
  * @FilePath: \web\src\components\Header.vue
@@ -12,17 +12,17 @@
       <div class="w text-grey d-flex jc-between">
         <p>
           Hi~ 欢迎来到长三角供需对接平台
-          <span class="ml-3" v-if="!userName">
-            <span class="cp" @click="login">登录</span>
-            <span class="mx-2">|</span>
+          <span class="ml-3" v-if="!$store.state.user">
+            <!-- <span class="cp" @click="login">登录</span> -->
             <router-link class="cp" to="login" tag="span">登录</router-link>
+
             <span class="mx-2">|</span>
             <router-link class="cp" to="register" tag="span">注册</router-link>
           </span>
           <span class="ml-3" v-else>
             <router-link class="cp" to="#" tag="span">
               你好
-              <span class="text-red">{{userName}}</span>
+              <span class="text-red">{{$store.state.user.fullname}}</span>
             </router-link>
             <span class="mx-2">|</span>
             <span class="cp" @click="delUser">注销</span>
@@ -214,7 +214,9 @@ export default {
   components: {},
 
   computed: {},
-
+  created() {
+    this.isLogin();
+  },
   methods: {
     // isLogin() {
     //   return localStorage.token ? true : false;
@@ -225,21 +227,88 @@ export default {
     },
     delUser() {
       localStorage.clear();
-      this.userName = localStorage.userName;
-      bus.$emit("logout");
+      this.isLogin();
+      // this.userName = localStorage.userName;
+      // bus.$emit("logout");
     },
     handleCommand(command) {
       this.$router.push(command);
     },
+    isLogin() {
+      if (localStorage.access_token) {
+        this.axios({
+          method: "get",
+          url: "/account/fetchUserInfo",
+          params: {
+            access_token: localStorage.access_token,
+          },
+        }).then((res) => {
+          window.console.log(res.data.data);
+          this.$store.commit("changeUser", res.data.data);
+        });
+      } else {
+        this.$store.commit("changeUser", '');
+      }
+      return false;
+      // let url = window.location.href;
+
+      // window.console.log(window.location.search);
+      // let isToken =
+      //   window.location.search.includes("status=authentication") || false;
+      // window.console.log(isToken);
+
+      // this.axios({
+      //   url: "http://auth.mst.casicloud.com/1/sso/is_login",
+      //   method: "get",
+      //   headers: {
+      //     scene: "web",
+      //     Referer: "http://58.216.47.108:8893",
+      //   },
+      //   params: {
+      //     client_id: "3e55qge5xjvagi1n",
+      //   },
+      // })
+      //   .then((res) => {
+      //     window.console.log(res);
+      //     if (res.data.data) {
+      //       if (isToken) {
+      //         window.console.log(1);
+      //         this.fetchInfo();
+      //       } else {
+      //         window.console.log(2);
+
+      //         window.location.href =
+      //           "http://auth.mst.casicloud.com/1/sso/login?redirect=http:%2F%2F58.216.47.108:8893";
+      //       }
+      //     } else {
+      //       window.console.log("暂未登录");
+      //     }
+      //   })
+      //   .catch((err) => {});
+    },
     login() {
+      this.$store.commit("DialogVisible");
+    },
+
+    fetchInfo() {
+      let url = window.location.href;
+      let code = url.split("?").pop().split("&").pop().split("=").pop() || "";
       this.axios({
         method: "get",
-        url: "http://auth.mst.casicloud.com/1/oauth/authorize",
+        url: "http://auth.mst.casicloud.com/1/sso/issue_token",
+        headers: {
+          scene: "web",
+          Referer: "http://58.216.47.108:8893",
+        },
         params: {
           client_id: "3e55qge5xjvagi1n",
-          redirect_uri: "http://58.216.47.108:8893",
-          response_type: "code",
+          code: code,
         },
+      }).then((res) => {
+        window.console.log(res);
+        if (res.data.data) {
+          this.userName = res.data.data.user.fullname;
+        }
       });
     },
   },
