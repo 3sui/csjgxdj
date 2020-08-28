@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-09 09:07:18
- * @LastEditTime: 2020-08-19 16:14:31
+ * @LastEditTime: 2020-08-26 16:41:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\views\user\register.vue
@@ -220,21 +220,33 @@ export default {
     onSubmit(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
+          // this.axios({
+          //   method: "post",
+          //   url: "/account/register",
+          //   data: this.form,
+          // }).then((res) => {
+          //   if (res.data.success) {
+          //     this.$message.success(res.data.message);
+          //     localStorage.token = res.data.token;
+          //     localStorage.name = res.data.user.name;
+          //     this.$router.push("/Business");
+          //     // this.isRegister = false;
+          //   } else {
+          //     this.$message.warning(res.data.message);
+          //   }
+          // });
+
           this.axios({
-            method: "post",
-            url: "/account/register",
-            data: this.form,
-          }).then((res) => {
-            if (res.data.success) {
-              this.$message.success(res.data.message);
-              localStorage.token = res.data.token;
-              localStorage.name = res.data.user.name;
-              this.$router.push("/Business");
-              // this.isRegister = false;
-            } else {
-              this.$message.warning(res.data.message);
-            }
-          });
+            methods: "post",
+            url: "http://uc.mst.casicloud.com/1/user/add",
+            data: {
+              mobile: "17621045381",
+            },
+          })
+            .then((res) => {
+              window.console.log(res);
+            })
+            .catch((err) => {});
         } else {
           console.log("error submit!!");
           return false;

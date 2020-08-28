@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-09 17:31:22
- * @LastEditTime: 2020-08-19 14:58:37
+ * @LastEditTime: 2020-08-26 10:37:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\views\home\Index.vue
@@ -17,6 +17,7 @@
     <!-- <Introduction /> -->
     <App />
     <Recommend />
+    <Dialog :DialogVisible="$store.state.Dialog" />
   </div>
 </template>
 
@@ -30,6 +31,7 @@ import Introduction from "../../components/home/Introduction";
 import App from "../../components/home/App";
 
 import Recommend from "../../components/home/Recommend";
+import Dialog from "../../components/tools/Dialog";
 
 import img1 from "../../assets/img/banner1.png";
 import img2 from "../../assets/img/banner2.jpeg";
@@ -51,6 +53,7 @@ export default {
     AppCenter,
     App,
     Recommend,
+    Dialog,
   },
 
   computed: {},
