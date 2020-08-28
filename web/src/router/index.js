@@ -23,11 +23,12 @@ const routes = [{
         path: '/index',
         name: 'Index',
         component: () => import('../views/home/Index.vue')
-      }, {
+      },{
         path: '/compaines',
         name: 'Compaines',
         component: () => import('../views/companies/Compaines.vue')
-      }, {
+      }, 
+      {
         path: '/companyDetail',
         name: 'companyDetail',
         component: () => import('../views/companies/CompanyDetail.vue')
@@ -72,17 +73,43 @@ const routes = [{
         component: () => import('../views/needs/QuotedPrice.vue')
       },
       {
+        path: '/appindex',
+        name: 'AppIndex',
+        component: () => import('../views/app/AppIndex.vue')
+      },
+      {
+        path: '/appinfo',
+        name: 'AppInfo',
+        component: () => import('../views/app/AppInfo.vue')
+      },
+     
+    ]
+  },
+  //后台
+  {
+    path: '/backmanage',
+    name: 'backmanage',
+    component: () => import('../components/backmanage/main.vue'),
+    children:[
+       {
         path: '/control',
         name: 'Control',
+        meta:{
+          title:"主页"
+        },
         component: () => import('../views/control/Control.vue')
       },
       {
-        path: '/back',
-        name: 'Back',
-        component: () => import('../views/control/Back.vue')
+        path: '/Productmanage',
+        name: 'Productmanage',
+        component: () => import('../views/control/Productmanage.vue'),
+        meta: {
+          title: "商品管理"
+        },
       }
     ]
-  }, {
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import('../views/user/Login.vue')
@@ -90,7 +117,8 @@ const routes = [{
     path: '/register',
     name: 'Register',
     component: () => import('../views/user/Register.vue')
-  }, {
+  }, 
+  {
     path: '/forget',
     name: 'Forget',
     component: () => import('../views/user/Forget.vue')
