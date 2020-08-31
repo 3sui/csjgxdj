@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-07-09 17:31:22
- * @LastEditTime: 2020-08-26 10:37:50
+ * @LastEditTime: 2020-08-28 14:00:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\views\home\Index.vue
@@ -9,7 +9,7 @@
 <!--  -->
 <template>
   <div>
-    <Banner :imgList="imgList" />
+    <Banner :imgList="imgList" height="550px" />
     <Statistics />
     <Information />
     <!-- <SearchInfo /> -->

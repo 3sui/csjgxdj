@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-07-02 09:16:50
- * @LastEditTime: 2020-08-26 14:45:40
+ * @LastEditTime: 2020-08-28 16:44:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \web\src\router\index.js
@@ -104,6 +104,15 @@ const routes = [{
         path: '/Demand',
         name: 'Demand',
         component: () => import('../views/docking/Demand.vue')
+      }, {
+        path: '/AppDetail',
+        name: 'AppDetail',
+        component: () => import('../views/app/AppDetail.vue')
+      }
+      , {
+        path: '/AppList',
+        name: 'AppList',
+        component: () => import('../views/app/AppList.vue')
       }
     ]
   }, {
