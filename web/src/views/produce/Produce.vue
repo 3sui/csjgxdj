@@ -10,11 +10,11 @@
 <template>
   <div id="produce">
     <!-- 头部banner -->
-    <div class="baner">
+    <!-- <div class="baner">
       <h1>生产对接</h1>
       <div class="title">生产对接 降本增效好途径</div>
       <div class="subtitle">生产设备与生产订单共享，实现区域协调</div>
-    </div>
+    </div> -->
     <!-- 选择生产设备类型区域 -->
     <div class="choosearea">
       <div class="choosetop">
@@ -22,7 +22,7 @@
           <el-col :span="6" class="choosetop-1">
             <div class="shape"></div>
           </el-col>
-          <el-col :span="6" class="choosetop-2">协同生产设备</el-col>
+          <el-col :span="6" class="choosetop-2">我是供应方</el-col>
           <el-col :span="6" class="choosetop-1">
             <div class="shape"></div>
           </el-col>
@@ -33,32 +33,33 @@
           <!-- <el-col > -->
             <div class="chooseitem">
               <div class="img-icon icon1"></div>
-              <div class="text">数控机床类</div>
+              <div class="text">生产订单</div>
             </div>
           <!-- </el-col> -->
           <!-- <el-col > -->
             <div class="chooseitem">
               <div class="img-icon icon2"></div>
-              <div class="text">智能设备类</div>
+              <div class="text">设备</div>
             </div>
           <!-- </el-col> -->
           <!-- <el-col > -->
             <div class="chooseitem">
               <div class="img-icon icon3"></div>
-              <div class="text">检测设备类</div>
+              <div class="text">产品</div>
             </div>
           <!-- </el-col> -->
           <!-- <el-col> -->
             <div class="chooseitem">
               <div class="img-icon icon4"></div>
-              <div class="text">其他类</div>
+              <div class="text">材料</div>
             </div>
           <!-- </el-col> -->
         </el-row>
       </div>
     </div>
     <!-- 生产订单发布 -->
-    <div class="choosearea">
+    
+    <!-- <div class="choosearea">
       <div class="choosetop">
         <el-row type="flex" :gutter="20">
           <el-col :span="6" class="choosetop-1">
@@ -72,7 +73,7 @@
       </div>
       <div class="choosecontent orderlist" >
         <el-row type="flex" class="row-bg" justify="space-between" :gutter="40">
-          <!-- 即将到期 -->
+         
           <el-col :span="12">
             <div class="orderitem">
               <div class="ordertop">
@@ -134,7 +135,7 @@
               </el-tabs>
             </div>
           </el-col>
-          <!-- 最新发布 -->
+   
           <el-col :span="12">
             <div class="orderitem">
               <div class="ordertop">
@@ -198,7 +199,8 @@
           </el-col>
         </el-row>
       </div>
-    </div>
+    </div> -->
+  
   </div>
 </template>
 
@@ -295,7 +297,7 @@ export default {
 
 .choosearea {
   // height: 100px;
-  padding: 20px 0;
+  padding: 80px 0;
 }
 .choosetop {
   width: 600px;

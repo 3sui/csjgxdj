@@ -1,9 +1,10 @@
 <template>
   <div class="choosearea">
-    <el-select v-model="value" placeholder="请选择省" @change="handelChange" class="selectitem">
+    <el-select v-model="value" placeholder="请选择省" @change="handelChange1(value)" class="selectitem">
       <el-option v-for="item in provinces" :key="item.id" :label="item.label" :value="item.id"></el-option>
     </el-select>
-    <el-select v-model="city" placeholder="请选择市" class="selectitem">
+    <el-select v-model="city" placeholder="请选择市" 
+    @change="handelChange2"class="selectitem">
       <el-option
         v-for="item in citiestem"
         :key="item.laber"
@@ -19,7 +20,6 @@ import provinces from "../../plugins/provinces";
 import cities from "../../plugins/cities";
 export default {
   name: "choosearea",
-  props: ["province", "city"],
   data() {
     return {
       provinces: provinces,
@@ -47,10 +47,26 @@ export default {
     },
   },
   methods: {
-    handelChange() {
+    handelChange1(value) {
       this.city = "";
-      this.citiestem = this.cities[this.value];
+      this.citiestem = this.cities[value];
+      console.log(value);
+      let p=this.provinces.filter(item=>{
+        return item.id===value
+      })
+      this.province=p[0].value
+      this.$emit('getprovince', this.province)
     },
+     handelChange2() {  
+      this.$emit('getcity',  this.city)
+    },
+    reset(){
+      this.province=''
+      this.city=''
+      this.value=''
+      this.citiestem=[]
+
+    }
   },
 };
 </script>

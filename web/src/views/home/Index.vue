@@ -27,7 +27,7 @@ import Statistics from "../../components/home/Statistics";
 import AppCenter from "../../components/home/AppCenter";
 import Information from "../../components/home/Information";
 // import SearchInfo from "../../components/home/SearchInfo";
-import Introduction from "../../components/home/Introduction";
+// import Introduction from "../../components/home/Introduction";
 import App from "../../components/home/App";
 
 import Recommend from "../../components/home/Recommend";
@@ -47,7 +47,7 @@ export default {
   components: {
     Banner,
     Information,
-    Introduction,
+    // Introduction,
     // SearchInfo,
     Statistics,
     AppCenter,

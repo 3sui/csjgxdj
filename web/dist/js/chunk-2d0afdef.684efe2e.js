@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0afdef"],{"0fbe":function(t,e,n){"use strict";n.r(e);var c=function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",[t._v("需求页面")])},a=[],o={name:"supply",data:function(){return{}},components:{},computed:{},created:function(){this.fetchData()},methods:{fetchData:function(){this.axios({method:"get",url:"/docking/fetchSupply"})}}},u=o,i=n("2877"),s=Object(i["a"])(u,c,a,!1,null,"3cd37e35",null);e["default"]=s.exports}}]);
-//# sourceMappingURL=chunk-2d0afdef.684efe2e.js.map
